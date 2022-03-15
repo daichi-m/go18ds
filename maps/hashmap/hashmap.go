@@ -13,7 +13,7 @@ package hashmap
 
 import (
 	"fmt"
-	"github.com/emirpasic/gods/maps"
+	"github.com/daichi-m/go18ds/maps"
 )
 
 func assertMapImplementation() {

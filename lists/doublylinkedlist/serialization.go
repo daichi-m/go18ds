@@ -6,7 +6,7 @@ package doublylinkedlist
 
 import (
 	"encoding/json"
-	"github.com/emirpasic/gods/containers"
+	"github.com/daichi-m/go18ds/containers"
 )
 
 func assertSerializationImplementation() {

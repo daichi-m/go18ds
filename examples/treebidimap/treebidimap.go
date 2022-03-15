@@ -5,8 +5,8 @@
 package main
 
 import (
-	"github.com/emirpasic/gods/maps/treebidimap"
-	"github.com/emirpasic/gods/utils"
+	"github.com/daichi-m/go18ds/maps/treebidimap"
+	"github.com/daichi-m/go18ds/utils"
 )
 
 // TreeBidiMapExample to demonstrate basic usage of TreeBidiMap

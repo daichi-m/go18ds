@@ -19,9 +19,9 @@ package treebidimap
 
 import (
 	"fmt"
-	"github.com/emirpasic/gods/maps"
-	"github.com/emirpasic/gods/trees/redblacktree"
-	"github.com/emirpasic/gods/utils"
+	"github.com/daichi-m/go18ds/maps"
+	"github.com/daichi-m/go18ds/trees/redblacktree"
+	"github.com/daichi-m/go18ds/utils"
 	"strings"
 )
 

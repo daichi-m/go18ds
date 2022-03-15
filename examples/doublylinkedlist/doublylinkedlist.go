@@ -5,8 +5,8 @@
 package main
 
 import (
-	dll "github.com/emirpasic/gods/lists/doublylinkedlist"
-	"github.com/emirpasic/gods/utils"
+	dll "github.com/daichi-m/go18ds/lists/doublylinkedlist"
+	"github.com/daichi-m/go18ds/utils"
 )
 
 // DoublyLinkedListExample to demonstrate basic usage of DoublyLinkedList

@@ -4,7 +4,7 @@
 
 package binaryheap
 
-import "github.com/emirpasic/gods/containers"
+import "github.com/daichi-m/go18ds/containers"
 
 func assertIteratorImplementation() {
 	var _ containers.ReverseIteratorWithIndex = (*Iterator)(nil)

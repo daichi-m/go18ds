@@ -11,8 +11,8 @@ package linkedliststack
 
 import (
 	"fmt"
-	"github.com/emirpasic/gods/lists/singlylinkedlist"
-	"github.com/emirpasic/gods/stacks"
+	"github.com/daichi-m/go18ds/lists/singlylinkedlist"
+	"github.com/daichi-m/go18ds/stacks"
 	"strings"
 )
 

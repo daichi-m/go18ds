@@ -7,7 +7,7 @@
 package containers
 
 import (
-	"github.com/emirpasic/gods/utils"
+	"github.com/daichi-m/go18ds/utils"
 	"testing"
 )
 
