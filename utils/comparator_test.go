@@ -27,7 +27,7 @@ func TestIntComparator(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run("IntCompare", func(tt *testing.T) {
-			actual := NumberComparator[int](test.i1, test.i2)
+			actual := NumberComparator(test.i1, test.i2)
 			expected := test.expected
 			if actual != expected {
 				tt.Errorf("Got %v expected %v", actual, expected)

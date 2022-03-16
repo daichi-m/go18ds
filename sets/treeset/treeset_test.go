@@ -81,7 +81,7 @@ func TestSetRemove(t *testing.T) {
 func TestSetEach(t *testing.T) {
 	set := NewWithStringComparator()
 	set.Add("c", "a", "b")
-	set.Each(func(index int, value interface{}) {
+	set.Each(func(index int, value T) {
 		switch index {
 		case 0:
 			if actualValue, expectedValue := value, "a"; actualValue != expectedValue {
@@ -104,7 +104,7 @@ func TestSetEach(t *testing.T) {
 func TestSetMap(t *testing.T) {
 	set := NewWithStringComparator()
 	set.Add("c", "a", "b")
-	mappedSet := set.Map(func(index int, value interface{}) interface{} {
+	mappedSet := set.Map(func(index int, value T) T {
 		return "mapped: " + value.(string)
 	})
 	if actualValue, expectedValue := mappedSet.Contains("mapped: a", "mapped: b", "mapped: c"), true; actualValue != expectedValue {
@@ -121,7 +121,7 @@ func TestSetMap(t *testing.T) {
 func TestSetSelect(t *testing.T) {
 	set := NewWithStringComparator()
 	set.Add("c", "a", "b")
-	selectedSet := set.Select(func(index int, value interface{}) bool {
+	selectedSet := set.Select(func(index int, value T) bool {
 		return value.(string) >= "a" && value.(string) <= "b"
 	})
 	if actualValue, expectedValue := selectedSet.Contains("a", "b"), true; actualValue != expectedValue {
@@ -139,13 +139,13 @@ func TestSetSelect(t *testing.T) {
 func TestSetAny(t *testing.T) {
 	set := NewWithStringComparator()
 	set.Add("c", "a", "b")
-	any := set.Any(func(index int, value interface{}) bool {
+	any := set.Any(func(index int, value T) bool {
 		return value.(string) == "c"
 	})
 	if any != true {
 		t.Errorf("Got %v expected %v", any, true)
 	}
-	any = set.Any(func(index int, value interface{}) bool {
+	any = set.Any(func(index int, value T) bool {
 		return value.(string) == "x"
 	})
 	if any != false {
@@ -156,13 +156,13 @@ func TestSetAny(t *testing.T) {
 func TestSetAll(t *testing.T) {
 	set := NewWithStringComparator()
 	set.Add("c", "a", "b")
-	all := set.All(func(index int, value interface{}) bool {
+	all := set.All(func(index int, value T) bool {
 		return value.(string) >= "a" && value.(string) <= "c"
 	})
 	if all != true {
 		t.Errorf("Got %v expected %v", all, true)
 	}
-	all = set.All(func(index int, value interface{}) bool {
+	all = set.All(func(index int, value T) bool {
 		return value.(string) >= "a" && value.(string) <= "b"
 	})
 	if all != false {
@@ -173,13 +173,13 @@ func TestSetAll(t *testing.T) {
 func TestSetFind(t *testing.T) {
 	set := NewWithStringComparator()
 	set.Add("c", "a", "b")
-	foundIndex, foundValue := set.Find(func(index int, value interface{}) bool {
+	foundIndex, foundValue := set.Find(func(index int, value T) bool {
 		return value.(string) == "c"
 	})
 	if foundValue != "c" || foundIndex != 2 {
 		t.Errorf("Got %v at %v expected %v at %v", foundValue, foundIndex, "c", 2)
 	}
-	foundIndex, foundValue = set.Find(func(index int, value interface{}) bool {
+	foundIndex, foundValue = set.Find(func(index int, value T) bool {
 		return value.(string) == "x"
 	})
 	if foundValue != nil || foundIndex != -1 {
@@ -367,7 +367,7 @@ func TestSetSerialization(t *testing.T) {
 	assert()
 }
 
-func benchmarkContains(b *testing.B, set *Set, size int) {
+func benchmarkContains(b *testing.B, set *Set[T], size int) {
 	for i := 0; i < b.N; i++ {
 		for n := 0; n < size; n++ {
 			set.Contains(n)
@@ -375,7 +375,7 @@ func benchmarkContains(b *testing.B, set *Set, size int) {
 	}
 }
 
-func benchmarkAdd(b *testing.B, set *Set, size int) {
+func benchmarkAdd(b *testing.B, set *Set[T], size int) {
 	for i := 0; i < b.N; i++ {
 		for n := 0; n < size; n++ {
 			set.Add(n)
@@ -383,7 +383,7 @@ func benchmarkAdd(b *testing.B, set *Set, size int) {
 	}
 }
 
-func benchmarkRemove(b *testing.B, set *Set, size int) {
+func benchmarkRemove(b *testing.B, set *Set[T], size int) {
 	for i := 0; i < b.N; i++ {
 		for n := 0; n < size; n++ {
 			set.Remove(n)

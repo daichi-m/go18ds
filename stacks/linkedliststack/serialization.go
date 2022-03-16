@@ -7,16 +7,16 @@ package linkedliststack
 import "github.com/daichi-m/go18ds/containers"
 
 func assertSerializationImplementation() {
-	var _ containers.JSONSerializer = (*Stack)(nil)
-	var _ containers.JSONDeserializer = (*Stack)(nil)
+	var _ containers.JSONSerializer = (*Stack[string])(nil)
+	var _ containers.JSONDeserializer = (*Stack[string])(nil)
 }
 
 // ToJSON outputs the JSON representation of the stack.
-func (stack *Stack) ToJSON() ([]byte, error) {
+func (stack *Stack[T]) ToJSON() ([]byte, error) {
 	return stack.list.ToJSON()
 }
 
 // FromJSON populates the stack from the input JSON representation.
-func (stack *Stack) FromJSON(data []byte) error {
+func (stack *Stack[T]) FromJSON(data []byte) error {
 	return stack.list.FromJSON(data)
 }

@@ -62,10 +62,10 @@ func TestSortStructs(t *testing.T) {
 
 	// o1,o2,expected
 	users := []User{
-		User{4, "John"},
-		User{1, "Jane"},
-		User{3, "Jack"},
-		User{2, "Jill"},
+		{4, "John"},
+		{1, "Jane"},
+		{3, "Jack"},
+		{2, "Jill"},
 	}
 
 	Sort(users, sortByID)

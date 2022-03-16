@@ -12,14 +12,14 @@ package sets
 import "github.com/daichi-m/go18ds/containers"
 
 // Set interface that all sets implement
-type Set interface {
-	Add(elements ...interface{})
-	Remove(elements ...interface{})
-	Contains(elements ...interface{}) bool
+type Set[T comparable] interface {
+	Add(elements ...T)
+	Remove(elements ...T)
+	Contains(elements ...T) bool
 
-	containers.Container
+	containers.Container[T]
 	// Empty() bool
 	// Size() int
 	// Clear()
-	// Values() []interface{}
+	// Values() []T
 }
