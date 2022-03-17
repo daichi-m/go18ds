@@ -7,17 +7,18 @@ package linkedhashmap
 import (
 	"bytes"
 	"encoding/json"
+
 	"github.com/daichi-m/go18ds/containers"
 	"github.com/daichi-m/go18ds/utils"
 )
 
 func assertSerializationImplementation() {
-	var _ containers.JSONSerializer = (*Map)(nil)
-	var _ containers.JSONDeserializer = (*Map)(nil)
+	var _ containers.JSONSerializer = (*Map[string, string])(nil)
+	var _ containers.JSONDeserializer = (*Map[string, string])(nil)
 }
 
 // ToJSON outputs the JSON representation of map.
-func (m *Map) ToJSON() ([]byte, error) {
+func (m *Map[K, V]) ToJSON() ([]byte, error) {
 	var b []byte
 	buf := bytes.NewBuffer(b)
 
@@ -68,24 +69,22 @@ func (m *Map) ToJSON() ([]byte, error) {
 //}
 
 // FromJSON populates map from the input JSON representation.
-func (m *Map) FromJSON(data []byte) error {
-	elements := make(map[string]interface{})
+func (m *Map[string, V]) FromJSON(data []byte) error {
+	elements := make(map[string]V)
 	err := json.Unmarshal(data, &elements)
 	if err != nil {
 		return err
 	}
 
 	index := make(map[string]int)
-	var keys []interface{}
+	var keys []string
 	for key := range elements {
 		keys = append(keys, key)
 		esc, _ := json.Marshal(key)
 		index[key] = bytes.Index(data, esc)
 	}
 
-	byIndex := func(a, b interface{}) int {
-		key1 := a.(string)
-		key2 := b.(string)
+	byIndex := func(key1, key2 string) int {
 		index1 := index[key1]
 		index2 := index[key2]
 		return index1 - index2
@@ -96,7 +95,7 @@ func (m *Map) FromJSON(data []byte) error {
 	m.Clear()
 
 	for _, key := range keys {
-		m.Put(key, elements[key.(string)])
+		m.Put(key, elements[key])
 	}
 
 	return nil

@@ -22,16 +22,18 @@ func assertSetImplementation() {
 	var _ sets.Set[string] = (*Set[string])(nil)
 }
 
+type presence struct{}
+
+var present presence
+
 // Set holds elements in a red-black tree
 type Set[T comparable] struct {
-	tree *rbt.Tree[T]
+	tree *rbt.Tree[T, presence]
 }
-
-var itemExists = struct{}{}
 
 // NewWith instantiates a new empty set with the custom comparator.
 func NewWith[T comparable](comparator utils.Comparator[T], values ...T) *Set[T] {
-	set := &Set[T]{tree: rbt.NewWith(comparator)}
+	set := &Set[T]{tree: rbt.NewWith[T, presence](comparator)}
 	if len(values) > 0 {
 		set.Add(values...)
 	}
@@ -40,7 +42,7 @@ func NewWith[T comparable](comparator utils.Comparator[T], values ...T) *Set[T] 
 
 // NewWithIntComparator instantiates a new empty set with the IntComparator, i.e. keys are of type int.
 func NewWithIntComparator(values ...int) *Set[int] {
-	set := &Set[int]{tree: rbt.NewWithIntComparator()}
+	set := &Set[int]{tree: rbt.NewWithIntComparator[presence]()}
 	if len(values) > 0 {
 		set.Add(values...)
 	}
@@ -49,7 +51,7 @@ func NewWithIntComparator(values ...int) *Set[int] {
 
 // NewWithStringComparator instantiates a new empty set with the StringComparator, i.e. keys are of type string.
 func NewWithStringComparator(values ...string) *Set[string] {
-	set := &Set[string]{tree: rbt.NewWithStringComparator()}
+	set := &Set[string]{tree: rbt.NewWithStringComparator[presence]()}
 	if len(values) > 0 {
 		set.Add(values...)
 	}
@@ -59,7 +61,7 @@ func NewWithStringComparator(values ...string) *Set[string] {
 // Add adds the items (one or more) to the set.
 func (set *Set[T]) Add(items ...T) {
 	for _, item := range items {
-		set.tree.Put(item, itemExists)
+		set.tree.Put(item, present)
 	}
 }
 

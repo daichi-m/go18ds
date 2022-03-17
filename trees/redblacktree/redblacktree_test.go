@@ -10,6 +10,10 @@ import (
 	"testing"
 )
 
+type empty struct{}
+
+var emptyVal empty = empty{}
+
 func concatenate[T any](args ...T) string {
 	sb := strings.Builder{}
 	for _, a := range args {

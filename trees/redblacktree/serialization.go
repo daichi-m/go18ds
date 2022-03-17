@@ -17,7 +17,7 @@ func assertSerializationImplementation() {
 }
 
 // ToJSON outputs the JSON representation of the tree.
-func (tree *Tree[K, T]) ToJSON() ([]byte, error) {
+func (tree *Tree[K, V]) ToJSON() ([]byte, error) {
 	elements := make(map[string]interface{})
 	it := tree.Iterator()
 	for it.Next() {
@@ -27,8 +27,8 @@ func (tree *Tree[K, T]) ToJSON() ([]byte, error) {
 }
 
 // FromJSON populates the tree from the input JSON representation.
-func (tree *Tree[string, T]) FromJSON(data []byte) error {
-	elements := make(map[string]T)
+func (tree *Tree[string, V]) FromJSON(data []byte) error {
+	elements := make(map[string]V)
 	err := json.Unmarshal(data, &elements)
 	if err == nil {
 		tree.Clear()

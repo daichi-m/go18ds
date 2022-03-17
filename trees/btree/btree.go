@@ -29,10 +29,6 @@ func assertTreeImplementation() {
 	var _ trees.Tree[string] = (*Tree[int, string])(nil)
 }
 
-type empty struct{}
-
-var emptyVal empty = empty{}
-
 // Tree holds elements of the B-tree
 type Tree[K comparable, V comparable] struct {
 	Root       *Node[K, V]         // Root node

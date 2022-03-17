@@ -10,19 +10,19 @@ import (
 )
 
 func assertIteratorImplementation() {
-	var _ containers.ReverseIteratorWithIndex = (*Iterator[T])(nil)
+	var _ containers.ReverseIteratorWithIndex[string] = (*Iterator[string])(nil)
 }
 
 // Iterator returns a stateful iterator whose values can be fetched by an index.
-type Iterator struct {
+type Iterator[T comparable] struct {
 	index    int
-	iterator rbt.Iterator
-	tree     *rbt.Tree
+	iterator rbt.Iterator[T, presence]
+	tree     *rbt.Tree[T, presence]
 }
 
 // Iterator holding the iterator's state
-func (set *Set[T]) Iterator() Iterator {
-	return Iterator{index: -1, iterator: set.tree.Iterator(), tree: set.tree}
+func (set *Set[T]) Iterator() Iterator[T] {
+	return Iterator[T]{index: -1, iterator: set.tree.Iterator(), tree: set.tree}
 }
 
 // Next moves the iterator to the next element and returns true if there was a next element in the container.

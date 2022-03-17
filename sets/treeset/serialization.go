@@ -6,12 +6,13 @@ package treeset
 
 import (
 	"encoding/json"
+
 	"github.com/daichi-m/go18ds/containers"
 )
 
 func assertSerializationImplementation() {
-	var _ containers.JSONSerializer = (*Set[T])(nil)
-	var _ containers.JSONDeserializer = (*Set[T])(nil)
+	var _ containers.JSONSerializer = (*Set[string])(nil)
+	var _ containers.JSONDeserializer = (*Set[string])(nil)
 }
 
 // ToJSON outputs the JSON representation of the set.

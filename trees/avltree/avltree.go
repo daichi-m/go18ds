@@ -20,10 +20,6 @@ func assertTreeImplementation() {
 	var _ trees.Tree[string] = new(Tree[int, string])
 }
 
-type empty struct{}
-
-var emptyVal empty = empty{}
-
 // Tree holds elements of the AVL tree.
 type Tree[K comparable, V comparable] struct {
 	Root       *Node[K, V]         // Root node

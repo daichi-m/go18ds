@@ -17,6 +17,10 @@ func concatenate[T any](args ...T) string {
 	return sb.String()
 }
 
+type empty struct{}
+
+var emptyVal empty = empty{}
+
 func TestAVLTreePut(t *testing.T) {
 	tree := NewWithIntComparator[string]()
 	tree.Put(5, "e")
