@@ -29,8 +29,8 @@ func (tree *Tree[K, V]) Iterator() Iterator[K, V] {
 }
 
 // IteratorAt returns a stateful iterator whose elements are key/value pairs that is initialised at a particular node.
-func (tree *Tree) IteratorAt(node *Node) Iterator {
-	return Iterator{tree: tree, node: node, position: between}
+func (tree *Tree[K, V]) IteratorAt(node *Node[K, V]) Iterator[K, V] {
+	return Iterator[K, V]{tree: tree, node: node, position: between}
 }
 
 // Next moves the iterator to the next element and returns true if there was a next element in the container.
