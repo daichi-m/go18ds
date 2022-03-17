@@ -23,7 +23,7 @@ func assertMapImplementation() {
 	var _ maps.Map[string, string] = (*Map[string, string])(nil)
 }
 
-// Map holds the elements in a red-black tree
+// Map holds the elements in a regular hash table, and uses doubly-linked list to store key ordering.
 type Map[K comparable, V comparable] struct {
 	table    map[K]V
 	ordering *doublylinkedlist.List[K]
