@@ -36,8 +36,8 @@ jobs:
           go get golang.org/x/tools/cmd/goimports
           go get github.com/fzipp/gocyclo
           export PATH=${PATH}:${GOPATH}/bin
-          echo PATH=${PATH} >>$GITHUB_ENV
-          echo $PATH
+          echo "PATH=${PATH}" >>$GITHUB_ENV
+          echo "PATH=${PATH}"
 
       - name: Format code
         run: goimports ./...
