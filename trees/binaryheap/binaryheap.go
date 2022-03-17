@@ -25,7 +25,7 @@ func assertTreeImplementation() {
 }
 
 // Heap holds elements in an array-list
-type Heap[T comparable ] struct {
+type Heap[T comparable] struct {
 	list       *arraylist.List[T]
 	Comparator utils.Comparator[T]
 }
