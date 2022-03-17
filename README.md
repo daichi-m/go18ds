@@ -11,8 +11,7 @@ This is based on the [GoDS](https://github.com/emirpasic/gods) library developed
 
 ## Data Structures
 
-- [Go18DS (Go Data Structures for Go 1.18+)](#go18ds-go-data-structures-for-go-118)
-	- [Data Structures](#data-structures)
+
 	- [Containers](#containers)
 		- [Lists](#lists)
 			- [ArrayList](#arraylist)
