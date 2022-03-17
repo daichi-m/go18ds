@@ -11,24 +11,25 @@ package hashset
 
 import (
 	"fmt"
-	"github.com/emirpasic/gods/sets"
 	"strings"
+
+	"github.com/daichi-m/go18ds/sets"
 )
 
 func assertSetImplementation() {
-	var _ sets.Set = (*Set)(nil)
+	var _ sets.Set[string] = (*Set[string])(nil)
 }
 
 // Set holds elements in go's native map
-type Set struct {
-	items map[interface{}]struct{}
+type Set[T comparable] struct {
+	items map[T]struct{}
 }
 
 var itemExists = struct{}{}
 
 // New instantiates a new empty set and adds the passed values, if any, to the set
-func New(values ...interface{}) *Set {
-	set := &Set{items: make(map[interface{}]struct{})}
+func New[T comparable](values ...T) *Set[T] {
+	set := &Set[T]{items: make(map[T]struct{})}
 	if len(values) > 0 {
 		set.Add(values...)
 	}
@@ -36,14 +37,14 @@ func New(values ...interface{}) *Set {
 }
 
 // Add adds the items (one or more) to the set.
-func (set *Set) Add(items ...interface{}) {
+func (set *Set[T]) Add(items ...T) {
 	for _, item := range items {
 		set.items[item] = itemExists
 	}
 }
 
 // Remove removes the items (one or more) from the set.
-func (set *Set) Remove(items ...interface{}) {
+func (set *Set[T]) Remove(items ...T) {
 	for _, item := range items {
 		delete(set.items, item)
 	}
@@ -52,7 +53,7 @@ func (set *Set) Remove(items ...interface{}) {
 // Contains check if items (one or more) are present in the set.
 // All items have to be present in the set for the method to return true.
 // Returns true if no arguments are passed at all, i.e. set is always superset of empty set.
-func (set *Set) Contains(items ...interface{}) bool {
+func (set *Set[T]) Contains(items ...T) bool {
 	for _, item := range items {
 		if _, contains := set.items[item]; !contains {
 			return false
@@ -62,23 +63,23 @@ func (set *Set) Contains(items ...interface{}) bool {
 }
 
 // Empty returns true if set does not contain any elements.
-func (set *Set) Empty() bool {
+func (set *Set[T]) Empty() bool {
 	return set.Size() == 0
 }
 
 // Size returns number of elements within the set.
-func (set *Set) Size() int {
+func (set *Set[T]) Size() int {
 	return len(set.items)
 }
 
 // Clear clears all values in the set.
-func (set *Set) Clear() {
-	set.items = make(map[interface{}]struct{})
+func (set *Set[T]) Clear() {
+	set.items = make(map[T]struct{})
 }
 
 // Values returns all items in the set.
-func (set *Set) Values() []interface{} {
-	values := make([]interface{}, set.Size())
+func (set *Set[T]) Values() []T {
+	values := make([]T, set.Size())
 	count := 0
 	for item := range set.items {
 		values[count] = item
@@ -88,7 +89,7 @@ func (set *Set) Values() []interface{} {
 }
 
 // String returns a string representation of container
-func (set *Set) String() string {
+func (set *Set[T]) String() string {
 	str := "HashSet\n"
 	items := []string{}
 	for k := range set.items {

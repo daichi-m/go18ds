@@ -5,12 +5,12 @@
 package linkedliststack
 
 import (
-	"fmt"
+	"strings"
 	"testing"
 )
 
 func TestStackPush(t *testing.T) {
-	stack := New()
+	stack := New[int]()
 	if actualValue := stack.Empty(); actualValue != true {
 		t.Errorf("Got %v expected %v", actualValue, true)
 	}
@@ -18,7 +18,7 @@ func TestStackPush(t *testing.T) {
 	stack.Push(2)
 	stack.Push(3)
 
-	if actualValue := stack.Values(); actualValue[0].(int) != 3 || actualValue[1].(int) != 2 || actualValue[2].(int) != 1 {
+	if actualValue := stack.Values(); actualValue[0] != 3 || actualValue[1] != 2 || actualValue[2] != 1 {
 		t.Errorf("Got %v expected %v", actualValue, "[3,2,1]")
 	}
 	if actualValue := stack.Empty(); actualValue != false {
@@ -33,9 +33,9 @@ func TestStackPush(t *testing.T) {
 }
 
 func TestStackPeek(t *testing.T) {
-	stack := New()
-	if actualValue, ok := stack.Peek(); actualValue != nil || ok {
-		t.Errorf("Got %v expected %v", actualValue, nil)
+	stack := New[int]()
+	if actualValue, ok := stack.Peek(); actualValue != 0 || ok {
+		t.Errorf("Got %v expected %v", actualValue, 0)
 	}
 	stack.Push(1)
 	stack.Push(2)
@@ -46,7 +46,7 @@ func TestStackPeek(t *testing.T) {
 }
 
 func TestStackPop(t *testing.T) {
-	stack := New()
+	stack := New[int]()
 	stack.Push(1)
 	stack.Push(2)
 	stack.Push(3)
@@ -60,8 +60,8 @@ func TestStackPop(t *testing.T) {
 	if actualValue, ok := stack.Pop(); actualValue != 1 || !ok {
 		t.Errorf("Got %v expected %v", actualValue, 1)
 	}
-	if actualValue, ok := stack.Pop(); actualValue != nil || ok {
-		t.Errorf("Got %v expected %v", actualValue, nil)
+	if actualValue, ok := stack.Pop(); actualValue != 0 || ok {
+		t.Errorf("Got %v expected %v", actualValue, 0)
 	}
 	if actualValue := stack.Empty(); actualValue != true {
 		t.Errorf("Got %v expected %v", actualValue, true)
@@ -72,10 +72,10 @@ func TestStackPop(t *testing.T) {
 }
 
 func TestStackIterator(t *testing.T) {
-	stack := New()
-	stack.Push("a")
-	stack.Push("b")
-	stack.Push("c")
+	stack := New[int]()
+	stack.Push(1)
+	stack.Push(2)
+	stack.Push(3)
 
 	// Iterator
 	it := stack.Iterator()
@@ -86,15 +86,15 @@ func TestStackIterator(t *testing.T) {
 		value := it.Value()
 		switch index {
 		case 0:
-			if actualValue, expectedValue := value, "c"; actualValue != expectedValue {
+			if actualValue, expectedValue := value, 3; actualValue != expectedValue {
 				t.Errorf("Got %v expected %v", actualValue, expectedValue)
 			}
 		case 1:
-			if actualValue, expectedValue := value, "b"; actualValue != expectedValue {
+			if actualValue, expectedValue := value, 2; actualValue != expectedValue {
 				t.Errorf("Got %v expected %v", actualValue, expectedValue)
 			}
 		case 2:
-			if actualValue, expectedValue := value, "a"; actualValue != expectedValue {
+			if actualValue, expectedValue := value, 1; actualValue != expectedValue {
 				t.Errorf("Got %v expected %v", actualValue, expectedValue)
 			}
 		default:
@@ -116,47 +116,47 @@ func TestStackIterator(t *testing.T) {
 }
 
 func TestStackIteratorBegin(t *testing.T) {
-	stack := New()
+	stack := New[int]()
 	it := stack.Iterator()
 	it.Begin()
-	stack.Push("a")
-	stack.Push("b")
-	stack.Push("c")
+	stack.Push(1)
+	stack.Push(2)
+	stack.Push(3)
 	for it.Next() {
 	}
 	it.Begin()
 	it.Next()
-	if index, value := it.Index(), it.Value(); index != 0 || value != "c" {
-		t.Errorf("Got %v,%v expected %v,%v", index, value, 0, "c")
+	if index, value := it.Index(), it.Value(); index != 0 || value != 3 {
+		t.Errorf("Got %v,%v expected %v,%v", index, value, 0, 3)
 	}
 }
 
 func TestStackIteratorFirst(t *testing.T) {
-	stack := New()
+	stack := New[int]()
 	it := stack.Iterator()
 	if actualValue, expectedValue := it.First(), false; actualValue != expectedValue {
 		t.Errorf("Got %v expected %v", actualValue, expectedValue)
 	}
-	stack.Push("a")
-	stack.Push("b")
-	stack.Push("c")
+	stack.Push(1)
+	stack.Push(2)
+	stack.Push(3)
 	if actualValue, expectedValue := it.First(), true; actualValue != expectedValue {
 		t.Errorf("Got %v expected %v", actualValue, expectedValue)
 	}
-	if index, value := it.Index(), it.Value(); index != 0 || value != "c" {
-		t.Errorf("Got %v,%v expected %v,%v", index, value, 0, "c")
+	if index, value := it.Index(), it.Value(); index != 0 || value != 3 {
+		t.Errorf("Got %v,%v expected %v,%v", index, value, 0, 3)
 	}
 }
 
 func TestStackSerialization(t *testing.T) {
-	stack := New()
+	stack := New[string]()
 	stack.Push("a")
 	stack.Push("b")
 	stack.Push("c")
 
 	var err error
 	assert := func() {
-		if actualValue, expectedValue := fmt.Sprintf("%s%s%s", stack.Values()...), "cba"; actualValue != expectedValue {
+		if actualValue, expectedValue := strings.Join(stack.Values(), ""), "cba"; actualValue != expectedValue {
 			t.Errorf("Got %v expected %v", actualValue, expectedValue)
 		}
 		if actualValue, expectedValue := stack.Size(), 3; actualValue != expectedValue {
@@ -176,7 +176,7 @@ func TestStackSerialization(t *testing.T) {
 	assert()
 }
 
-func benchmarkPush(b *testing.B, stack *Stack, size int) {
+func benchmarkPush(b *testing.B, stack *Stack[int], size int) {
 	for i := 0; i < b.N; i++ {
 		for n := 0; n < size; n++ {
 			stack.Push(n)
@@ -184,7 +184,7 @@ func benchmarkPush(b *testing.B, stack *Stack, size int) {
 	}
 }
 
-func benchmarkPop(b *testing.B, stack *Stack, size int) {
+func benchmarkPop(b *testing.B, stack *Stack[int], size int) {
 	for i := 0; i < b.N; i++ {
 		for n := 0; n < size; n++ {
 			stack.Pop()
@@ -195,7 +195,7 @@ func benchmarkPop(b *testing.B, stack *Stack, size int) {
 func BenchmarkLinkedListStackPop100(b *testing.B) {
 	b.StopTimer()
 	size := 100
-	stack := New()
+	stack := New[int]()
 	for n := 0; n < size; n++ {
 		stack.Push(n)
 	}
@@ -206,7 +206,7 @@ func BenchmarkLinkedListStackPop100(b *testing.B) {
 func BenchmarkLinkedListStackPop1000(b *testing.B) {
 	b.StopTimer()
 	size := 1000
-	stack := New()
+	stack := New[int]()
 	for n := 0; n < size; n++ {
 		stack.Push(n)
 	}
@@ -217,7 +217,7 @@ func BenchmarkLinkedListStackPop1000(b *testing.B) {
 func BenchmarkLinkedListStackPop10000(b *testing.B) {
 	b.StopTimer()
 	size := 10000
-	stack := New()
+	stack := New[int]()
 	for n := 0; n < size; n++ {
 		stack.Push(n)
 	}
@@ -228,7 +228,7 @@ func BenchmarkLinkedListStackPop10000(b *testing.B) {
 func BenchmarkLinkedListStackPop100000(b *testing.B) {
 	b.StopTimer()
 	size := 100000
-	stack := New()
+	stack := New[int]()
 	for n := 0; n < size; n++ {
 		stack.Push(n)
 	}
@@ -239,7 +239,7 @@ func BenchmarkLinkedListStackPop100000(b *testing.B) {
 func BenchmarkLinkedListStackPush100(b *testing.B) {
 	b.StopTimer()
 	size := 100
-	stack := New()
+	stack := New[int]()
 	b.StartTimer()
 	benchmarkPush(b, stack, size)
 }
@@ -247,7 +247,7 @@ func BenchmarkLinkedListStackPush100(b *testing.B) {
 func BenchmarkLinkedListStackPush1000(b *testing.B) {
 	b.StopTimer()
 	size := 1000
-	stack := New()
+	stack := New[int]()
 	for n := 0; n < size; n++ {
 		stack.Push(n)
 	}
@@ -258,7 +258,7 @@ func BenchmarkLinkedListStackPush1000(b *testing.B) {
 func BenchmarkLinkedListStackPush10000(b *testing.B) {
 	b.StopTimer()
 	size := 10000
-	stack := New()
+	stack := New[int]()
 	for n := 0; n < size; n++ {
 		stack.Push(n)
 	}
@@ -269,7 +269,7 @@ func BenchmarkLinkedListStackPush10000(b *testing.B) {
 func BenchmarkLinkedListStackPush100000(b *testing.B) {
 	b.StopTimer()
 	size := 100000
-	stack := New()
+	stack := New[int]()
 	for n := 0; n < size; n++ {
 		stack.Push(n)
 	}

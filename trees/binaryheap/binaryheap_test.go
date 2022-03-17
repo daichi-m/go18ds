@@ -20,7 +20,7 @@ func TestBinaryHeapPush(t *testing.T) {
 	heap.Push(2) // [2,3]
 	heap.Push(1) // [1,3,2](2 swapped with 1, hence last)
 
-	if actualValue := heap.Values(); actualValue[0].(int) != 1 || actualValue[1].(int) != 3 || actualValue[2].(int) != 2 {
+	if actualValue := heap.Values(); actualValue[0] != 1 || actualValue[1] != 3 || actualValue[2] != 2 {
 		t.Errorf("Got %v expected %v", actualValue, "[1,2,3]")
 	}
 	if actualValue := heap.Empty(); actualValue != false {
@@ -39,7 +39,7 @@ func TestBinaryHeapPushBulk(t *testing.T) {
 
 	heap.Push(15, 20, 3, 1, 2)
 
-	if actualValue := heap.Values(); actualValue[0].(int) != 1 || actualValue[1].(int) != 2 || actualValue[2].(int) != 3 {
+	if actualValue := heap.Values(); actualValue[0] != 1 || actualValue[1] != 2 || actualValue[2] != 3 {
 		t.Errorf("Got %v expected %v", actualValue, "[1,2,3]")
 	}
 	if actualValue, ok := heap.Pop(); actualValue != 1 || !ok {
@@ -68,8 +68,8 @@ func TestBinaryHeapPop(t *testing.T) {
 	if actualValue, ok := heap.Pop(); actualValue != 3 || !ok {
 		t.Errorf("Got %v expected %v", actualValue, 3)
 	}
-	if actualValue, ok := heap.Pop(); actualValue != nil || ok {
-		t.Errorf("Got %v expected %v", actualValue, nil)
+	if actualValue, ok := heap.Pop(); actualValue != 0 || ok {
+		t.Errorf("Got %v expected %v", actualValue, 0)
 	}
 	if actualValue := heap.Empty(); actualValue != true {
 		t.Errorf("Got %v expected %v", actualValue, true)
@@ -91,7 +91,7 @@ func TestBinaryHeapRandom(t *testing.T) {
 	prev, _ := heap.Pop()
 	for !heap.Empty() {
 		curr, _ := heap.Pop()
-		if prev.(int) > curr.(int) {
+		if prev > curr {
 			t.Errorf("Heap property invalidated. prev: %v current: %v", prev, curr)
 		}
 		prev = curr
@@ -268,7 +268,7 @@ func TestBinaryHeapSerialization(t *testing.T) {
 
 	var err error
 	assert := func() {
-		if actualValue := heap.Values(); actualValue[0].(string) != "a" || actualValue[1].(string) != "c" || actualValue[2].(string) != "b" {
+		if actualValue := heap.Values(); actualValue[0] != "a" || actualValue[1] != "c" || actualValue[2] != "b" {
 			t.Errorf("Got %v expected %v", actualValue, "[1,3,2]")
 		}
 		if actualValue := heap.Size(); actualValue != 3 {
@@ -291,7 +291,7 @@ func TestBinaryHeapSerialization(t *testing.T) {
 	assert()
 }
 
-func benchmarkPush(b *testing.B, heap *Heap, size int) {
+func benchmarkPush(b *testing.B, heap *Heap[int], size int) {
 	for i := 0; i < b.N; i++ {
 		for n := 0; n < size; n++ {
 			heap.Push(n)
@@ -299,7 +299,7 @@ func benchmarkPush(b *testing.B, heap *Heap, size int) {
 	}
 }
 
-func benchmarkPop(b *testing.B, heap *Heap, size int) {
+func benchmarkPop(b *testing.B, heap *Heap[int], size int) {
 	for i := 0; i < b.N; i++ {
 		for n := 0; n < size; n++ {
 			heap.Pop()

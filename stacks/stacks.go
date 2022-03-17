@@ -9,15 +9,15 @@
 // Reference: https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29
 package stacks
 
-import "github.com/emirpasic/gods/containers"
+import "github.com/daichi-m/go18ds/containers"
 
 // Stack interface that all stacks implement
-type Stack interface {
-	Push(value interface{})
-	Pop() (value interface{}, ok bool)
-	Peek() (value interface{}, ok bool)
+type Stack[T comparable] interface {
+	Push(value T)
+	Pop() (value T, ok bool)
+	Peek() (value T, ok bool)
 
-	containers.Container
+	containers.Container[T]
 	// Empty() bool
 	// Size() int
 	// Clear()

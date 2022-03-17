@@ -5,13 +5,13 @@
 package main
 
 import (
-	sll "github.com/emirpasic/gods/lists/singlylinkedlist"
-	"github.com/emirpasic/gods/utils"
+	sll "github.com/daichi-m/go18ds/lists/singlylinkedlist"
+	"github.com/daichi-m/go18ds/utils"
 )
 
 // SinglyLinkedListExample to demonstrate basic usage of SinglyLinkedList
 func main() {
-	list := sll.New()
+	list := sll.New[string]()
 	list.Add("a")                         // ["a"]
 	list.Append("b")                      // ["a","b"] (same as Add())
 	list.Prepend("c")                     // ["c","a","b"]

@@ -5,8 +5,8 @@
 package main
 
 import (
-	"github.com/emirpasic/gods/trees/binaryheap"
-	"github.com/emirpasic/gods/utils"
+	"github.com/daichi-m/go18ds/trees/binaryheap"
+	"github.com/daichi-m/go18ds/utils"
 )
 
 // BinaryHeapExample to demonstrate basic usage of BinaryHeap
@@ -29,8 +29,8 @@ func main() {
 	heap.Size()                               // 0
 
 	// Max-heap
-	inverseIntComparator := func(a, b interface{}) int {
-		return -utils.IntComparator(a, b)
+	inverseIntComparator := func(a, b int) int {
+		return -utils.NumberComparator(a, b)
 	}
 	heap = binaryheap.NewWith(inverseIntComparator) // empty (min-heap)
 	heap.Push(2)                                    // 2
