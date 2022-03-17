@@ -26,4 +26,8 @@ type List[T comparable] interface {
 	Set(index int, value T)
 
 	containers.Container[T]
+	// Empty() bool
+	// Size() int
+	// Clear()
+	// Values() []T
 }
