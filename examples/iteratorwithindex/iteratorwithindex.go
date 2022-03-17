@@ -6,6 +6,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/daichi-m/go18ds/sets/treeset"
 )
 

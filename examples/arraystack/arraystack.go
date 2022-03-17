@@ -8,7 +8,7 @@ import "github.com/daichi-m/go18ds/stacks/arraystack"
 
 // ArrayStackExample to demonstrate basic usage of ArrayStack
 func main() {
-	stack := arraystack.New() // empty
+	stack := arraystack.New[int]() // empty
 	stack.Push(1)             // 1
 	stack.Push(2)             // 1, 2
 	stack.Values()            // 2, 1 (LIFO order)
