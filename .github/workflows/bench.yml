@@ -31,5 +31,7 @@ jobs:
 
       - name: Push Result
         run: |
+          git config user.name gh-actions
+          git config user.email gh-actions@github.com
           git commit -am "[Action] Benchmark results"
           git push
