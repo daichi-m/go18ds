@@ -4,9 +4,6 @@ on:
   workflow_dispatch:
     input: {}
 
-env:
-  GO111MODULE: on
-
 jobs:
   bench:
     name: Generate Benchmark
