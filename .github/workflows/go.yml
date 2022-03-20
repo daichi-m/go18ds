@@ -31,7 +31,7 @@ jobs:
       - name: Install Go Tools
         run: |
           go install golang.org/x/tools/cmd/goimports@latest
-          go install github.com/fzipp/gocyclo@latest
+          go install github.com/fzipp/gocyclo/cmd/gocyclo@latest
 
       - name: Format code
         run: |
