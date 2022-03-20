@@ -3,6 +3,9 @@ name: Benchmark
 on:
   workflow_dispatch:
     input: {}
+  push:
+    branches:
+      - "main"
 
 jobs:
   bench:
