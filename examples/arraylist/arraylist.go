@@ -5,13 +5,13 @@
 package main
 
 import (
-	"github.com/emirpasic/gods/lists/arraylist"
-	"github.com/emirpasic/gods/utils"
+	"github.com/daichi-m/go18ds/lists/arraylist"
+	"github.com/daichi-m/go18ds/utils"
 )
 
 // ArrayListExample to demonstrate basic usage of ArrayList
 func main() {
-	list := arraylist.New()
+	list := arraylist.New[string]()
 	list.Add("a")                         // ["a"]
 	list.Add("c", "b")                    // ["a","c","b"]
 	list.Sort(utils.StringComparator)     // ["a","b","c"]

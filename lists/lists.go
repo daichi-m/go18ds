@@ -10,24 +10,24 @@
 package lists
 
 import (
-	"github.com/emirpasic/gods/containers"
-	"github.com/emirpasic/gods/utils"
+	"github.com/daichi-m/go18ds/containers"
+	"github.com/daichi-m/go18ds/utils"
 )
 
 // List interface that all lists implement
-type List interface {
-	Get(index int) (interface{}, bool)
+type List[T comparable] interface {
+	Get(index int) (T, bool)
 	Remove(index int)
-	Add(values ...interface{})
-	Contains(values ...interface{}) bool
-	Sort(comparator utils.Comparator)
+	Add(values ...T)
+	Contains(values ...T) bool
+	Sort(comparator utils.Comparator[T])
 	Swap(index1, index2 int)
-	Insert(index int, values ...interface{})
-	Set(index int, value interface{})
+	Insert(index int, values ...T)
+	Set(index int, value T)
 
-	containers.Container
+	containers.Container[T]
 	// Empty() bool
 	// Size() int
 	// Clear()
-	// Values() []interface{}
+	// Values() []T
 }

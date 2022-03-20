@@ -1,0 +1,25 @@
+name: Benchmark
+
+on:
+  workflow_dispatch:
+    input: {}
+  push:
+    branches:
+      - "main"
+
+jobs:
+  bench:
+    name: Generate Benchmark
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Benchmark
+        run: |
+          go get github.com/cespare/prettybench
+          go install github.com/cespare/prettybench
+          go test -bench=. -benchmem | prettybench >benchmark.txt
+
+      - name: Push Result
+        run: |
+          git commit -am "[Action] Benchmark results"
+          git push

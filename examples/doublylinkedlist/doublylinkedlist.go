@@ -5,13 +5,13 @@
 package main
 
 import (
-	dll "github.com/emirpasic/gods/lists/doublylinkedlist"
-	"github.com/emirpasic/gods/utils"
+	dll "github.com/daichi-m/go18ds/lists/doublylinkedlist"
+	"github.com/daichi-m/go18ds/utils"
 )
 
 // DoublyLinkedListExample to demonstrate basic usage of DoublyLinkedList
 func main() {
-	list := dll.New()
+	list := dll.New[string]()
 	list.Add("a")                         // ["a"]
 	list.Append("b")                      // ["a","b"] (same as Add())
 	list.Prepend("c")                     // ["c","a","b"]

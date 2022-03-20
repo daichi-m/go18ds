@@ -6,22 +6,23 @@ package doublylinkedlist
 
 import (
 	"encoding/json"
-	"github.com/emirpasic/gods/containers"
+
+	"github.com/daichi-m/go18ds/containers"
 )
 
 func assertSerializationImplementation() {
-	var _ containers.JSONSerializer = (*List)(nil)
-	var _ containers.JSONDeserializer = (*List)(nil)
+	var _ containers.JSONSerializer = (*List[string])(nil)
+	var _ containers.JSONDeserializer = (*List[string])(nil)
 }
 
 // ToJSON outputs the JSON representation of list's elements.
-func (list *List) ToJSON() ([]byte, error) {
+func (list *List[T]) ToJSON() ([]byte, error) {
 	return json.Marshal(list.Values())
 }
 
 // FromJSON populates list's elements from the input JSON representation.
-func (list *List) FromJSON(data []byte) error {
-	elements := []interface{}{}
+func (list *List[T]) FromJSON(data []byte) error {
+	elements := []T{}
 	err := json.Unmarshal(data, &elements)
 	if err == nil {
 		list.Clear()

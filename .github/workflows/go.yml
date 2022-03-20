@@ -1,25 +1,56 @@
-name: Go
+name: Go Build
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - "development"
   pull_request:
-    branches: [ master ]
+    branches:
+      - "development"
 
 jobs:
-
   build:
-    runs-on: ubuntu-latest
+    name: Build
+    strategy:
+      fail-fast: true
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+        go:
+          - "1.18"
+    runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.17
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.go }}
 
-    - name: Build
-      run: go build -v ./...
+      - name: Install Go Tools
+        run: |
+          go install golang.org/x/tools/cmd/goimports@latest
+          go install github.com/fzipp/gocyclo/cmd/gocyclo@latest
 
-    - name: Test
-      run: go test -v ./...
+      - name: Format code
+        run: |
+          ls -al ${GOROOT}/path/bin || ls -alR $(go env GOPATH)
+          goimports -w  .
+
+      - name: Vet
+        run: go vet -v ./...
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Test and Coverage Report
+        run: go test -race -covermode=atomic -coverprofile=coverage.out ./...
+
+      - name: Cyclomatic complexity
+        run: gocyclo -avg -over 15 .
+
+      - name: Upload code coverage
+        uses: codecov/codecov-action@v1
+        with:
+          fail_ci_if_error: true
