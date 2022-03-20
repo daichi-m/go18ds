@@ -1,0 +1,25 @@
+name: Benchmark
+
+on:
+  workflow_dispatch:
+    input: {}
+
+env:
+  GO111MODULE: on
+
+jobs:
+  bench:
+    name: Generate Benchmark
+    runs-on: ubuntu-latest
+    steps:
+      - name: Benchmark
+        run: |
+          go get github.com/cespare/prettybench
+          export PATH=${PATH}:${GOPATH}/bin
+          go test -bench=. -benchmem | prettybench >benchmark.txt
+
+      - name: Push Result
+        uses: actions/checkout@v2
+        run: |
+          git commit -am "[Action] Benchmark results"
+          git push
