@@ -10,14 +10,24 @@ on:
 jobs:
   bench:
     name: Generate Benchmark
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        os:
+          - ubuntu-latest
+        go:
+          - "1.18"
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.go }}
+
       - name: Benchmark
-        run: |
-          go get github.com/cespare/prettybench
-          go install github.com/cespare/prettybench
-          go test -bench=. -benchmem ./... | prettybench >benchmark.txt
+        run: go test -bench=. -benchmem ./...
 
       - name: Push Result
         run: |
