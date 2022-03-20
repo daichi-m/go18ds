@@ -35,6 +35,7 @@ jobs:
         run: |
           go get golang.org/x/tools/cmd/goimports
           export PATH=${PATH}:${GOPATH}/bin
+          ls -al ${GOPATH}/bin
           goimports ./...
 
       - name: Vet
@@ -50,6 +51,7 @@ jobs:
         run: |
           go get github.com/fzipp/gocyclo
           export PATH=${PATH}:${GOPATH}/bin
+          ls -al ${GOPATH}/bin
           gocyclo -avg -over 15 .
 
       - name: Upload code coverage
