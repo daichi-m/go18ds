@@ -27,7 +27,7 @@ jobs:
           go-version: ${{ matrix.go }}
 
       - name: Benchmark
-        run: go test -bench=. -benchmem ./...
+        run: go test -bench=. -benchmem ./... | tee >benchmark.txt
 
       - name: Push Result
         run: |
