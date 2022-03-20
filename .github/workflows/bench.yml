@@ -16,7 +16,7 @@ jobs:
       - name: Benchmark
         run: |
           go get github.com/cespare/prettybench
-          export PATH=${PATH}:${GOPATH}/bin
+          export PATH=${PATH}:$(go env GOPATH)/bin
           go test -bench=. -benchmem | prettybench >benchmark.txt
 
       - name: Push Result

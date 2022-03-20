@@ -34,8 +34,8 @@ jobs:
       - name: Format code
         run: |
           go get golang.org/x/tools/cmd/goimports
-          export PATH=${PATH}:${GOPATH}/bin
-          ls -al ${GOPATH}/bin
+          export PATH=${PATH}:$(go env GOPATH)/bin
+          ls -al $(go env GOPATH)/bin
           goimports ./...
 
       - name: Vet
@@ -50,8 +50,8 @@ jobs:
       - name: Cyclomatic complexity
         run: |
           go get github.com/fzipp/gocyclo
-          export PATH=${PATH}:${GOPATH}/bin
-          ls -al ${GOPATH}/bin
+          export PATH=${PATH}:$(go env GOPATH)/bin
+          ls -al $(go env GOPATH)/bin
           gocyclo -avg -over 15 .
 
       - name: Upload code coverage
