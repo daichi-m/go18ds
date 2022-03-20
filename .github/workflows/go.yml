@@ -34,7 +34,9 @@ jobs:
           go get github.com/fzipp/gocyclo
 
       - name: Format code
-        run: goimports -w  .
+        run: |
+          ls -al ${GOROOT}/path/bin
+          goimports -w  .
 
       - name: Vet
         run: go vet -v ./...
