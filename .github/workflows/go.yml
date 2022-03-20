@@ -28,12 +28,13 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
 
-      - name: Format code
+      - name: Install Go Tools
         run: |
           go get golang.org/x/tools/cmd/goimports
-          export PATH=${PATH}:$(go env GOPATH)/bin
-          ls -al $(go env GOPATH)/bin
-          goimports ./...
+          go get github.com/fzipp/gocyclo
+
+      - name: Format code
+        run: go import -w  .
 
       - name: Vet
         run: go vet -v ./...
@@ -45,11 +46,7 @@ jobs:
         run: go test -v ./...
 
       - name: Cyclomatic complexity
-        run: |
-          go get github.com/fzipp/gocyclo
-          export PATH=${PATH}:$(go env GOPATH)/bin
-          ls -al $(go env GOPATH)/bin
-          gocyclo -avg -over 15 .
+        run: gocyclo -avg -over 15 .
 
       - name: Upload code coverage
         uses: codecov/codecov-action@v1
