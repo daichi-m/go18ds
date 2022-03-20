@@ -16,7 +16,6 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-latest
         go:
           - "1.18"
     runs-on: ${{ matrix.os }}
