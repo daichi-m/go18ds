@@ -12,6 +12,7 @@ jobs:
     name: Generate Benchmark
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Benchmark
         run: |
           go get github.com/cespare/prettybench
@@ -19,7 +20,6 @@ jobs:
           go test -bench=. -benchmem | prettybench >benchmark.txt
 
       - name: Push Result
-        uses: actions/checkout@v2
         run: |
           git commit -am "[Action] Benchmark results"
           git push
