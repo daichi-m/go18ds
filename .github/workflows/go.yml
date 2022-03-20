@@ -44,8 +44,8 @@ jobs:
       - name: Build
         run: go build -v ./...
 
-      - name: Test
-        run: go test -v ./...
+      - name: Test and Coverage Report
+        run: go test -race -covermode=atomic -coverprofile=coverage.out
 
       - name: Cyclomatic complexity
         run: gocyclo -avg -over 15 .
