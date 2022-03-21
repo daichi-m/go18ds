@@ -38,6 +38,11 @@ jobs:
           ls -al ${GOROOT}/path/bin || ls -alR $(go env GOPATH)
           goimports -w  .
 
+      - name: Lint the code
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: latest
+
       - name: Vet
         run: go vet -v ./...
 
