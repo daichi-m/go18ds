@@ -16,5 +16,6 @@ linters:
     - unused
     - varcheck
     # Additional
+    - goimports
     - dupl
     - whitespace
