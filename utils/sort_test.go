@@ -23,11 +23,9 @@ func TestSortInts(t *testing.T) {
 			t.Errorf("Not sorted!")
 		}
 	}
-
 }
 
 func TestSortStrings(t *testing.T) {
-
 	strings := []string{}
 	strings = append(strings, "d")
 	strings = append(strings, "a")

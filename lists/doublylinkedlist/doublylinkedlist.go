@@ -82,7 +82,6 @@ func (list *List[T]) Prepend(values ...T) {
 // Get returns the element at index.
 // Second return parameter is true if index is within bounds of the array and array is not empty, otherwise false.
 func (list *List[T]) Get(index int) (T, bool) {
-
 	if !list.withinRange(index) {
 		return *new(T), false
 	}
@@ -102,7 +101,6 @@ func (list *List[T]) Get(index int) (T, bool) {
 
 // Remove removes the element at the given index from the list.
 func (list *List[T]) Remove(index int) {
-
 	if !list.withinRange(index) {
 		return
 	}
@@ -147,7 +145,6 @@ func (list *List[T]) Remove(index int) {
 // Performance time complexity of n^2.
 // Returns true if no arguments are passed at all, i.e. set is always super-set of empty set.
 func (list *List[T]) Contains(values ...T) bool {
-
 	if len(values) == 0 {
 		return true
 	}
@@ -210,7 +207,6 @@ func (list *List[T]) Clear() {
 
 // Sort sorts values (in-place) using.
 func (list *List[T]) Sort(comparator utils.Comparator[T]) {
-
 	if list.size < 2 {
 		return
 	}
@@ -221,7 +217,6 @@ func (list *List[T]) Sort(comparator utils.Comparator[T]) {
 	list.Clear()
 
 	list.Add(values...)
-
 }
 
 // Swap swaps values of two elements at the given indices.
@@ -244,7 +239,6 @@ func (list *List[T]) Swap(i, j int) {
 // Does not do anything if position is negative or bigger than list's size
 // Note: position equal to list's size is valid, i.e. append.
 func (list *List[T]) Insert(index int, values ...T) {
-
 	if !list.withinRange(index) {
 		// Append
 		if index == list.size {
@@ -301,7 +295,6 @@ func (list *List[T]) Insert(index int, values ...T) {
 // Does not do anything if position is negative or bigger than list's size
 // Note: position equal to list's size is valid, i.e. append.
 func (list *List[T]) Set(index int, value T) {
-
 	if !list.withinRange(index) {
 		// Append
 		if index == list.size {

@@ -10,7 +10,6 @@ import (
 )
 
 func TestIntComparator(t *testing.T) {
-
 	// i1,i2,expected
 	tests := []struct {
 		i1, i2   int
@@ -37,7 +36,6 @@ func TestIntComparator(t *testing.T) {
 }
 
 func TestStringComparator(t *testing.T) {
-
 	// s1,s2,expected
 	tests := []struct {
 		s1, s2   string
@@ -65,7 +63,6 @@ func TestStringComparator(t *testing.T) {
 }
 
 func TestTimeComparator(t *testing.T) {
-
 	now := time.Now()
 
 	// i1,i2,expected
@@ -90,7 +87,6 @@ func TestTimeComparator(t *testing.T) {
 }
 
 func TestCustomComparator(t *testing.T) {
-
 	type Custom struct {
 		id   int
 		name string
