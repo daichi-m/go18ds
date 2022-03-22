@@ -1,0 +1,333 @@
+PASS
+ok  	github.com/daichi-m/go18ds/containers	0.004s
+?   	github.com/daichi-m/go18ds/examples/arraylist	[no test files]
+?   	github.com/daichi-m/go18ds/examples/arraystack	[no test files]
+?   	github.com/daichi-m/go18ds/examples/avltree	[no test files]
+?   	github.com/daichi-m/go18ds/examples/binaryheap	[no test files]
+?   	github.com/daichi-m/go18ds/examples/btree	[no test files]
+?   	github.com/daichi-m/go18ds/examples/customcomparator	[no test files]
+?   	github.com/daichi-m/go18ds/examples/doublylinkedlist	[no test files]
+?   	github.com/daichi-m/go18ds/examples/enumerablewithindex	[no test files]
+?   	github.com/daichi-m/go18ds/examples/enumerablewithkey	[no test files]
+?   	github.com/daichi-m/go18ds/examples/godsort	[no test files]
+?   	github.com/daichi-m/go18ds/examples/hashbidimap	[no test files]
+?   	github.com/daichi-m/go18ds/examples/hashmap	[no test files]
+?   	github.com/daichi-m/go18ds/examples/hashset	[no test files]
+?   	github.com/daichi-m/go18ds/examples/iteratorwithindex	[no test files]
+?   	github.com/daichi-m/go18ds/examples/iteratorwithkey	[no test files]
+?   	github.com/daichi-m/go18ds/examples/linkedhashmap	[no test files]
+?   	github.com/daichi-m/go18ds/examples/linkedhashset	[no test files]
+?   	github.com/daichi-m/go18ds/examples/linkedliststack	[no test files]
+?   	github.com/daichi-m/go18ds/examples/redblacktree	[no test files]
+?   	github.com/daichi-m/go18ds/examples/redblacktreeextended	[no test files]
+?   	github.com/daichi-m/go18ds/examples/serialization	[no test files]
+?   	github.com/daichi-m/go18ds/examples/singlylinkedlist	[no test files]
+?   	github.com/daichi-m/go18ds/examples/treebidimap	[no test files]
+?   	github.com/daichi-m/go18ds/examples/treemap	[no test files]
+?   	github.com/daichi-m/go18ds/examples/treeset	[no test files]
+?   	github.com/daichi-m/go18ds/lists	[no test files]
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/lists/arraylist
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkArrayListGet100-2         	14541400	        81.54 ns/op	       0 B/op	       0 allocs/op
+BenchmarkArrayListGet1000-2        	 1575566	       762.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkArrayListGet10000-2       	  159142	      7541 ns/op	       0 B/op	       0 allocs/op
+BenchmarkArrayListGet100000-2      	   10000	    100495 ns/op	       0 B/op	       0 allocs/op
+BenchmarkArrayListAdd100-2         	  943690	      1143 ns/op	    2275 B/op	       0 allocs/op
+BenchmarkArrayListAdd1000-2        	   91845	     13675 ns/op	   23381 B/op	       0 allocs/op
+BenchmarkArrayListAdd10000-2       	   10000	    122930 ns/op	  214722 B/op	       0 allocs/op
+BenchmarkArrayListAdd100000-2      	    1124	   1145929 ns/op	 1908706 B/op	       0 allocs/op
+BenchmarkArrayListRemove100-2      	 5151266	       232.7 ns/op	       0 B/op	       0 allocs/op
+BenchmarkArrayListRemove1000-2     	  510636	      2245 ns/op	       0 B/op	       0 allocs/op
+BenchmarkArrayListRemove10000-2    	   52675	     22417 ns/op	       0 B/op	       0 allocs/op
+BenchmarkArrayListRemove100000-2   	    2577	    408590 ns/op	     135 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/lists/arraylist	21.865s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/lists/doublylinkedlist
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkDoublyLinkedListGet100-2         	  611794	      1954 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDoublyLinkedListGet1000-2        	    3853	    308155 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDoublyLinkedListGet10000-2       	      28	  39893571 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDoublyLinkedListGet100000-2      	       1	4119348288 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDoublyLinkedListAdd100-2         	  201186	      5703 ns/op	    2400 B/op	     100 allocs/op
+BenchmarkDoublyLinkedListAdd1000-2        	   21590	     55181 ns/op	   24000 B/op	    1000 allocs/op
+BenchmarkDoublyLinkedListAdd10000-2       	    2018	    582311 ns/op	  240000 B/op	   10000 allocs/op
+BenchmarkDoublyLinkedListAdd100000-2      	     212	   5672202 ns/op	 2400000 B/op	  100000 allocs/op
+BenchmarkDoublyLinkedListRemove100-2      	 5285127	       227.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDoublyLinkedListRemove1000-2     	  486784	      2402 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDoublyLinkedListRemove10000-2    	   46492	     25591 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDoublyLinkedListRemove100000-2   	       1	1944135893 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/lists/doublylinkedlist	21.462s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/lists/singlylinkedlist
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkSinglyLinkedListGet100-2         	  277617	      4255 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSinglyLinkedListGet1000-2        	    1879	    636634 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSinglyLinkedListGet10000-2       	      16	  69429545 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSinglyLinkedListGet100000-2      	       1	7027322837 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSinglyLinkedListAdd100-2         	  173808	      6021 ns/op	    1600 B/op	     100 allocs/op
+BenchmarkSinglyLinkedListAdd1000-2        	   21118	     56668 ns/op	   16000 B/op	    1000 allocs/op
+BenchmarkSinglyLinkedListAdd10000-2       	    1846	    558030 ns/op	  160000 B/op	   10000 allocs/op
+BenchmarkSinglyLinkedListAdd100000-2      	     184	   5467477 ns/op	 1600000 B/op	  100000 allocs/op
+BenchmarkSinglyLinkedListRemove100-2      	 5224999	       229.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSinglyLinkedListRemove1000-2     	  494410	      2401 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSinglyLinkedListRemove10000-2    	   45596	     25208 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSinglyLinkedListRemove100000-2   	       1	2634538470 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/lists/singlylinkedlist	24.064s
+?   	github.com/daichi-m/go18ds/maps	[no test files]
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/maps/hashbidimap
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkHashBidiMapGet100-2         	 1281903	       935.7 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashBidiMapGet1000-2        	   73150	     16743 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashBidiMapGet10000-2       	    4986	    241677 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashBidiMapGet100000-2      	     376	   3181937 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashBidiMapPut100-2         	  140196	      8463 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashBidiMapPut1000-2        	    9134	    126994 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashBidiMapPut10000-2       	     864	   1386813 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashBidiMapPut100000-2      	      66	  17589507 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashBidiMapRemove100-2      	 3841005	       312.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashBidiMapRemove1000-2     	  395928	      3028 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashBidiMapRemove10000-2    	   39721	     30148 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashBidiMapRemove100000-2   	    3940	    304156 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/maps/hashbidimap	17.935s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/maps/hashmap
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkHashMapGet100-2         	 1337283	       925.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashMapGet1000-2        	   73184	     16014 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashMapGet10000-2       	    5091	    232649 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashMapGet100000-2      	     405	   2962685 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashMapPut100-2         	  801649	      1454 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashMapPut1000-2        	   62125	     19303 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashMapPut10000-2       	    4677	    256942 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashMapPut100000-2      	     367	   3275482 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashMapRemove100-2      	 5139205	       233.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashMapRemove1000-2     	  532560	      2242 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashMapRemove10000-2    	   53668	     22360 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashMapRemove100000-2   	    4381	    235249 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/maps/hashmap	16.774s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/maps/linkedhashmap
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkTreeMapGet100-2         	 1282695	       935.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapGet1000-2        	   68533	     16591 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapGet10000-2       	    5011	    240446 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapGet100000-2      	     402	   2983714 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapPut100-2         	  419848	      2933 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapPut1000-2        	   36129	     33038 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapPut10000-2       	    3064	    391495 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapPut100000-2      	     247	   4783020 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapRemove100-2      	 2897700	       414.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapRemove1000-2     	  275743	      4045 ns/op	      15 B/op	       0 allocs/op
+BenchmarkTreeMapRemove10000-2    	   23668	     46549 ns/op	   18105 B/op	       0 allocs/op
+BenchmarkTreeMapRemove100000-2   	       1	26621090501 ns/op	40397383704 B/op	  100323 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/maps/linkedhashmap	44.154s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/maps/treebidimap
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkTreeBidiMapGet100-2         	  381348	      3102 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeBidiMapGet1000-2        	   17560	     68444 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeBidiMapGet10000-2       	    1395	    862663 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeBidiMapGet100000-2      	     100	  10345034 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeBidiMapPut100-2         	   29548	     40131 ns/op	    6400 B/op	     200 allocs/op
+BenchmarkTreeBidiMapPut1000-2        	    2402	    496761 ns/op	   64000 B/op	    2000 allocs/op
+BenchmarkTreeBidiMapPut10000-2       	     210	   5676124 ns/op	  640000 B/op	   20000 allocs/op
+BenchmarkTreeBidiMapPut100000-2      	      18	  64078013 ns/op	 6400000 B/op	  200000 allocs/op
+BenchmarkTreeBidiMapRemove100-2      	 1777035	       672.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeBidiMapRemove1000-2     	  180517	      6643 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeBidiMapRemove10000-2    	   17958	     66546 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeBidiMapRemove100000-2   	    1743	    676172 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/maps/treebidimap	18.957s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/maps/treemap
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkTreeMapGet100-2         	  304824	      3912 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapGet1000-2        	   15082	     79461 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapGet10000-2       	    1236	    960797 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapGet100000-2      	     100	  11422793 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapPut100-2         	  259780	      4622 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapPut1000-2        	   15997	     74883 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapPut10000-2       	    1365	    875443 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapPut100000-2      	     100	  10525318 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapRemove100-2      	 2502890	       479.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapRemove1000-2     	  255088	      4698 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapRemove10000-2    	   25521	     47033 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeMapRemove100000-2   	    2150	    474733 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/maps/treemap	17.176s
+?   	github.com/daichi-m/go18ds/sets	[no test files]
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/sets/hashset
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkHashSetContains100-2      	 1000000	      1105 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetContains1000-2     	   60847	     19437 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetContains10000-2    	    4536	    258160 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetContains100000-2   	     372	   3205970 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetAdd100-2           	  699124	      1608 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetAdd1000-2          	   53377	     21575 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetAdd10000-2         	    4240	    281314 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetAdd100000-2        	     340	   3502639 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetRemove100-2        	 3436399	       349.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetRemove1000-2       	  292386	      4035 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetRemove10000-2      	   35772	     33525 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetRemove100000-2     	    2541	    407725 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/sets/hashset	16.019s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/sets/linkedhashset
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkHashSetContains100-2      	 1203864	      1001 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetContains1000-2     	   62989	     18807 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetContains10000-2    	    4598	    260115 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetContains100000-2   	     370	   3226641 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetAdd100-2           	  913494	      1244 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetAdd1000-2          	   56680	     21285 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetAdd10000-2         	    4297	    279638 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetAdd100000-2        	     344	   3460828 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetRemove100-2        	 2026693	       591.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHashSetRemove1000-2       	  202695	      5968 ns/op	      21 B/op	       0 allocs/op
+BenchmarkHashSetRemove10000-2      	   17041	     66051 ns/op	   25146 B/op	       0 allocs/op
+BenchmarkHashSetRemove100000-2     	       1	27506869985 ns/op	40397368344 B/op	  100163 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/sets/linkedhashset	45.298s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/sets/treeset
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkTreeSetContains100-2      	  301250	      3983 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeSetContains1000-2     	   15529	     77022 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeSetContains10000-2    	    1243	    930761 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeSetContains100000-2   	     100	  10626903 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeSetAdd100-2           	  291565	      4113 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeSetAdd1000-2          	   16042	     74831 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeSetAdd10000-2         	    1324	    904710 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeSetAdd100000-2        	     100	  10590181 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeSetRemove100-2        	 2072689	       579.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeSetRemove1000-2       	  207336	      5700 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeSetRemove10000-2      	   21064	     56954 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTreeSetRemove100000-2     	    1851	    573640 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/sets/treeset	17.282s
+?   	github.com/daichi-m/go18ds/stacks	[no test files]
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/stacks/arraystack
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkArrayStackPop100-2       	 2775836	       432.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkArrayStackPop1000-2      	  276184	      4226 ns/op	       0 B/op	       0 allocs/op
+BenchmarkArrayStackPop10000-2     	   28461	     42163 ns/op	       1 B/op	       0 allocs/op
+BenchmarkArrayStackPop100000-2    	    2798	    421956 ns/op	     124 B/op	       0 allocs/op
+BenchmarkArrayStackPush100-2      	  982296	      1321 ns/op	    2186 B/op	       0 allocs/op
+BenchmarkArrayStackPush1000-2     	   78284	     17672 ns/op	   27431 B/op	       0 allocs/op
+BenchmarkArrayStackPush10000-2    	   10000	    147267 ns/op	  214722 B/op	       0 allocs/op
+BenchmarkArrayStackPush100000-2   	     884	   1622453 ns/op	 2426907 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/stacks/arraystack	11.634s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/stacks/linkedliststack
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkLinkedListStackPop100-2       	 2777214	       433.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLinkedListStackPop1000-2      	  282691	      4228 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLinkedListStackPop10000-2     	   28442	     42143 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLinkedListStackPop100000-2    	    2826	    421664 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLinkedListStackPush100-2      	  225519	      5708 ns/op	    1600 B/op	     100 allocs/op
+BenchmarkLinkedListStackPush1000-2     	   21330	     50141 ns/op	   16000 B/op	    1000 allocs/op
+BenchmarkLinkedListStackPush10000-2    	    2365	    572513 ns/op	  160000 B/op	   10000 allocs/op
+BenchmarkLinkedListStackPush100000-2   	     222	   5173126 ns/op	 1600000 B/op	  100000 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/stacks/linkedliststack	15.189s
+?   	github.com/daichi-m/go18ds/trees	[no test files]
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/trees/avltree
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkAVLTreeGet100-2         	  356458	      3337 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAVLTreeGet1000-2        	   16771	     71570 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAVLTreeGet10000-2       	    1327	    899824 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAVLTreeGet100000-2      	     100	  10373357 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAVLTreePut100-2         	  307653	      3810 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAVLTreePut1000-2        	   13921	     86329 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAVLTreePut10000-2       	    1086	   1097656 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAVLTreePut100000-2      	      81	  14581485 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAVLTreeRemove100-2      	 4301500	       278.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAVLTreeRemove1000-2     	  433891	      2689 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAVLTreeRemove10000-2    	   44686	     26798 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAVLTreeRemove100000-2   	    4429	    270145 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/trees/avltree	17.779s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/trees/binaryheap
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkBinaryHeapPop100-2       	 4320213	       277.7 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBinaryHeapPop1000-2      	  443910	      2689 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBinaryHeapPop10000-2     	   44004	     27093 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBinaryHeapPop100000-2    	    4288	    273013 ns/op	      81 B/op	       0 allocs/op
+BenchmarkBinaryHeapPush100-2      	  423352	      2967 ns/op	    2536 B/op	       0 allocs/op
+BenchmarkBinaryHeapPush1000-2     	   37702	     31927 ns/op	   28479 B/op	       0 allocs/op
+BenchmarkBinaryHeapPush10000-2    	    5065	    280293 ns/op	  211940 B/op	       0 allocs/op
+BenchmarkBinaryHeapPush100000-2   	     390	   3096625 ns/op	 2747806 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/trees/binaryheap	11.726s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/trees/btree
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkBTreeGet100-2         	  279096	      4144 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBTreeGet1000-2        	   15450	     77973 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBTreeGet10000-2       	    1207	    986676 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBTreeGet100000-2      	     100	  10981525 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBTreePut100-2         	  170257	      6866 ns/op	    1600 B/op	     100 allocs/op
+BenchmarkBTreePut1000-2        	    9037	    114390 ns/op	   16000 B/op	    1000 allocs/op
+BenchmarkBTreePut10000-2       	     942	   1268201 ns/op	  160000 B/op	   10000 allocs/op
+BenchmarkBTreePut100000-2      	      74	  14873110 ns/op	 1600000 B/op	  100000 allocs/op
+BenchmarkBTreeRemove100-2      	 2904114	       416.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBTreeRemove1000-2     	  297260	      4057 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBTreeRemove10000-2    	   29623	     40523 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBTreeRemove100000-2   	    2926	    409432 ns/op	       1 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/trees/btree	17.234s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/trees/redblacktree
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkRedBlackTreeGet100-2         	  289204	      4007 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRedBlackTreeGet1000-2        	   15313	     78349 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRedBlackTreeGet10000-2       	    1224	    980706 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRedBlackTreeGet100000-2      	     100	  11131174 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRedBlackTreePut100-2         	  293268	      4092 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRedBlackTreePut1000-2        	   16575	     72318 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRedBlackTreePut10000-2       	    1320	    925181 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRedBlackTreePut100000-2      	     100	  10285821 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRedBlackTreeRemove100-2      	 2892703	       415.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRedBlackTreeRemove1000-2     	  287992	      4044 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRedBlackTreeRemove10000-2    	   29737	     40309 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRedBlackTreeRemove100000-2   	    2950	    407055 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/trees/redblacktree	18.092s
+goos: linux
+goarch: amd64
+pkg: github.com/daichi-m/go18ds/utils
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkGoSortRandom-2   	1000000000	         0.01860 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/daichi-m/go18ds/utils	0.137s
