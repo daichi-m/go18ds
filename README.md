@@ -1,10 +1,11 @@
 <!-- omit in toc -->
 # Go18DS (Go Data Structures for Go 1.18+)
 
-[![GoDoc](https://godoc.org/github.com/emirpasic/gods?status.svg)](https://godoc.org/github.com/emirpasic/gods) 
-[![Build Status](https://travis-ci.org/emirpasic/gods.svg)](https://travis-ci.org/emirpasic/gods) 
-[![Go Report Card](https://goreportcard.com/badge/github.com/emirpasic/gods)](https://goreportcard.com/report/github.com/emirpasic/gods) 
-[![PyPI](https://img.shields.io/pypi/l/Django.svg?maxAge=2592000)](https://github.com/emirpasic/gods/blob/master/LICENSE)
+[![Go Reference](https://pkg.go.dev/badge/github.com/daichi-m/go18ds.svg)](https://pkg.go.dev/github.com/daichi-m/go18ds)
+[![Go Build](https://github.com/daichi-m/go18ds/actions/workflows/go.yml/badge.svg)](https://github.com/daichi-m/go18ds/actions/workflows/go.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/daichi-m/go18ds)](https://goreportcard.com/report/github.com/daichi-m/go18ds)
+[![codecov](https://codecov.io/gh/daichi-m/go18ds/branch/main/graph/badge.svg?token=5eYXdBcCzD)](https://codecov.io/gh/daichi-m/go18ds)
+[![License](https://img.shields.io/badge/license-BSD--3--Clause-green)](https://github.com/daichi-m/go18ds/blob/main/LICENSE)
 
 
 
@@ -13,7 +14,7 @@ Implementation of various data structures and algorithms in Go.
 This is based on the [GoDS](https://github.com/emirpasic/gods) library developed by Emir Pasic.
 
 <!-- omit in toc -->
-## Data Structures
+## Data Structurespkg.
 
 
 - [Containers](#containers)
