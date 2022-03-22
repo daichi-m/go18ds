@@ -148,5 +148,4 @@ func (m *Map[K, V]) String() string {
 		str += fmt.Sprintf("%v:%v ", it.Key(), it.Value())
 	}
 	return strings.TrimRight(str, " ") + "]"
-
 }

@@ -1,63 +1,66 @@
-[![GoDoc](https://godoc.org/github.com/emirpasic/gods?status.svg)](https://godoc.org/github.com/emirpasic/gods) 
-[![Build Status](https://travis-ci.org/emirpasic/gods.svg)](https://travis-ci.org/emirpasic/gods) 
-[![Go Report Card](https://goreportcard.com/badge/github.com/emirpasic/gods)](https://goreportcard.com/report/github.com/emirpasic/gods) 
-[![PyPI](https://img.shields.io/pypi/l/Django.svg?maxAge=2592000)](https://github.com/emirpasic/gods/blob/master/LICENSE)
-
+<!-- omit in toc -->
 # Go18DS (Go Data Structures for Go 1.18+)
+
+[![Go Reference](https://pkg.go.dev/badge/github.com/daichi-m/go18ds.svg)](https://pkg.go.dev/github.com/daichi-m/go18ds)
+[![Go Build](https://github.com/daichi-m/go18ds/actions/workflows/go.yml/badge.svg)](https://github.com/daichi-m/go18ds/actions/workflows/go.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/daichi-m/go18ds)](https://goreportcard.com/report/github.com/daichi-m/go18ds)
+[![codecov](https://codecov.io/gh/daichi-m/go18ds/branch/main/graph/badge.svg?token=5eYXdBcCzD)](https://codecov.io/gh/daichi-m/go18ds)
+[![License](https://img.shields.io/badge/license-BSD--3--Clause-green)](https://github.com/daichi-m/go18ds/blob/main/LICENSE)
+
+
 
 Implementation of various data structures and algorithms in Go.
 
 This is based on the [GoDS](https://github.com/emirpasic/gods) library developed by Emir Pasic.
 
-## Data Structures
+<!-- omit in toc -->
+## Data Structurespkg.
 
 
-- [Go18DS (Go Data Structures for Go 1.18+)](#go18ds-go-data-structures-for-go-118)
-  - [Data Structures](#data-structures)
-  - [Containers](#containers)
-    - [Lists](#lists)
-      - [ArrayList](#arraylist)
-      - [SinglyLinkedList](#singlylinkedlist)
-      - [DoublyLinkedList](#doublylinkedlist)
-    - [Sets](#sets)
-      - [HashSet](#hashset)
-      - [TreeSet](#treeset)
-      - [LinkedHashSet](#linkedhashset)
-    - [Stacks](#stacks)
-      - [LinkedListStack](#linkedliststack)
-      - [ArrayStack](#arraystack)
-    - [Maps](#maps)
-      - [HashMap](#hashmap)
-      - [TreeMap](#treemap)
-      - [LinkedHashMap](#linkedhashmap)
-      - [HashBidiMap](#hashbidimap)
-      - [TreeBidiMap](#treebidimap)
-    - [Trees](#trees)
-      - [RedBlackTree](#redblacktree)
-      - [AVLTree](#avltree)
-      - [BTree](#btree)
-      - [BinaryHeap](#binaryheap)
-  - [Functions](#functions)
-    - [Comparator](#comparator)
-    - [Iterator](#iterator)
-      - [IteratorWithIndex](#iteratorwithindex)
-      - [IteratorWithKey](#iteratorwithkey)
-      - [ReverseIteratorWithIndex](#reverseiteratorwithindex)
-      - [ReverseIteratorWithKey](#reverseiteratorwithkey)
-    - [Enumerable](#enumerable)
-      - [EnumerableWithIndex](#enumerablewithindex)
-      - [EnumerableWithKey](#enumerablewithkey)
-    - [Serialization](#serialization)
-      - [JSONSerializer](#jsonserializer)
-      - [JSONDeserializer](#jsondeserializer)
-    - [Sort](#sort)
-    - [Container](#container)
-  - [Appendix](#appendix)
-    - [Motivation](#motivation)
-    - [Goals](#goals)
-    - [Testing and Benchmarking](#testing-and-benchmarking)
-    - [Contributing](#contributing)
-    - [License](#license)
+- [Containers](#containers)
+  - [Lists](#lists)
+    - [ArrayList](#arraylist)
+    - [SinglyLinkedList](#singlylinkedlist)
+    - [DoublyLinkedList](#doublylinkedlist)
+  - [Sets](#sets)
+    - [HashSet](#hashset)
+    - [TreeSet](#treeset)
+    - [LinkedHashSet](#linkedhashset)
+  - [Stacks](#stacks)
+    - [LinkedListStack](#linkedliststack)
+    - [ArrayStack](#arraystack)
+  - [Maps](#maps)
+    - [HashMap](#hashmap)
+    - [TreeMap](#treemap)
+    - [LinkedHashMap](#linkedhashmap)
+    - [HashBidiMap](#hashbidimap)
+    - [TreeBidiMap](#treebidimap)
+  - [Trees](#trees)
+    - [RedBlackTree](#redblacktree)
+    - [AVLTree](#avltree)
+    - [BTree](#btree)
+    - [BinaryHeap](#binaryheap)
+- [Functions](#functions)
+  - [Comparator](#comparator)
+  - [Iterator](#iterator)
+    - [IteratorWithIndex](#iteratorwithindex)
+    - [IteratorWithKey](#iteratorwithkey)
+    - [ReverseIteratorWithIndex](#reverseiteratorwithindex)
+    - [ReverseIteratorWithKey](#reverseiteratorwithkey)
+  - [Enumerable](#enumerable)
+    - [EnumerableWithIndex](#enumerablewithindex)
+    - [EnumerableWithKey](#enumerablewithkey)
+  - [Serialization](#serialization)
+    - [JSONSerializer](#jsonserializer)
+    - [JSONDeserializer](#jsondeserializer)
+  - [Sort](#sort)
+  - [Container](#container)
+- [Appendix](#appendix)
+  - [Motivation](#motivation)
+  - [Goals](#goals)
+  - [Testing and Benchmarking](#testing-and-benchmarking)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 
 ## Containers
@@ -1440,31 +1443,31 @@ Collections and data structures found in other languages: Java Collections, C++ 
 
 **Fast algorithms**:
 
-  - Based on decades of knowledge and experiences of other libraries mentioned above.
+- Based on decades of knowledge and experiences of other libraries mentioned above.
 
 **Memory efficient algorithms**:
 
-  - Avoiding to consume memory by using optimal algorithms and data structures for the given set of problems, e.g. red-black tree in case of TreeMap to avoid keeping redundant sorted array of keys in memory.
+- Avoiding to consume memory by using optimal algorithms and data structures for the given set of problems, e.g. red-black tree in case of TreeMap to avoid keeping redundant sorted array of keys in memory.
 
 **Easy to use library**:
 
-  - Well-structured library with minimalistic set of atomic operations from which more complex operations can be crafted.
+- Well-structured library with minimalistic set of atomic operations from which more complex operations can be crafted.
 
 **Stable library**:
 
-  - Only additions are permitted keeping the library backward compatible.
+- Only additions are permitted keeping the library backward compatible.
 
 **Solid documentation and examples**:
 
-  - Learning by example.
+- Learning by example.
 
 **Production ready**:
 
-  - Used in production.
+- Used in production.
 
 **No dependencies**:
 
-  - No external imports.
+- No external imports.
 
 There is often a tug of war between speed and memory when crafting algorithms. We choose to optimize for speed in most cases within reasonable limits on memory consumption.
 
@@ -1476,7 +1479,7 @@ This takes a while, so test within sub-packages:
 
 `go test -run=NO_TEST -bench . -benchmem  -benchtime 1s ./...`
 
-<p align="center"><img src="https://cloud.githubusercontent.com/assets/3115942/16892979/5e698d46-4b27-11e6-864b-cb2b865327b6.png" /></p>
+[Click here](https://github.com/daichi-m/go18ds/blob/main/benchmark.txt) to see the benchmark results.
 
 ### Contributing
 

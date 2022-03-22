@@ -17,7 +17,7 @@ import (
 //    positive , if a > b
 type Comparator[T comparable] func(a, b T) int
 
-func validateComparators() {
+func assertComparatorImplementation() {
 	var _ Comparator[string] = StringComparator
 
 	var _ Comparator[int] = NumberComparator[int]

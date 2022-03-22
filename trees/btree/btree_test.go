@@ -542,7 +542,6 @@ func TestBTreeRemove9(t *testing.T) {
 	const max = 1000
 	orders := []int{3, 4, 5, 6, 7, 8, 9, 10, 20, 100, 500, 1000, 5000, 10000}
 	for _, order := range orders {
-
 		tree := NewWithIntComparator[int](order)
 
 		{

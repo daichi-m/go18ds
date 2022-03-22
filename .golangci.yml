@@ -1,0 +1,21 @@
+run:
+  go: "1.18"
+  tests: false
+issues:
+  fix: true
+  exclude:
+    - "`assert(.*)Implementation` is unused"
+linters:
+  disable-all: true
+  enable:
+    # Defaults
+    - errcheck
+    - gosimple
+    - ineffassign
+    - typecheck
+    - unused
+    - varcheck
+    # Additional
+    - goimports
+    - dupl
+    - whitespace

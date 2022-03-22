@@ -134,7 +134,6 @@ func TestAVLTreeRemove(t *testing.T) {
 	if empty, size := tree.Empty(), tree.Size(); empty != true || size != -0 {
 		t.Errorf("Got %v expected %v", empty, true)
 	}
-
 }
 
 func TestAVLTreeLeftAndRight(t *testing.T) {
