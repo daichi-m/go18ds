@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - "main"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Custom tag"
+        required: false
+        type: string
+
 
 jobs:
   build:
@@ -41,6 +48,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           default_bump: "minor"
+          custom_tag: "${{ github.event.inputs.tag }}"
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
