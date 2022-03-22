@@ -42,6 +42,7 @@ jobs:
         uses: golangci/golangci-lint-action@v2
         with:
           version: latest
+        continue-on-error: true
 
       - name: Vet
         run: go vet -v ./...
