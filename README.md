@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Go18DS (Go Data Structures for Go 1.18+)
+# Go18DS (Go 1.18+ Data Structures)
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/daichi-m/go18ds.svg)](https://pkg.go.dev/github.com/daichi-m/go18ds)
 [![Go Build](https://github.com/daichi-m/go18ds/actions/workflows/go.yml/badge.svg)](https://github.com/daichi-m/go18ds/actions/workflows/go.yml)
@@ -12,10 +12,10 @@
 Implementation of various data structures and algorithms in Go.
 
 This is based on the [GoDS](https://github.com/emirpasic/gods) library developed by Emir Pasic.
+Since the target is for Go 1.18+, it is inherently generic-aware.
 
 <!-- omit in toc -->
-## Data Structurespkg.
-
+## Data Structures
 
 - [Containers](#containers)
   - [Lists](#lists)
