@@ -6,6 +6,8 @@ package utils
 
 import (
 	"time"
+
+	"github.com/daichi-m/go18ds/constraints"
 )
 
 // Comparator will make type assertion (see IntComparator for example),
@@ -61,7 +63,7 @@ func StringComparator(s1, s2 string) int {
 }
 
 // IntComparator provides a basic comparison on int
-func NumberComparator[T Number](a, b T) int {
+func NumberComparator[T constraints.Number](a, b T) int {
 	switch {
 	case a > b:
 		return 1

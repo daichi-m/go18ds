@@ -7,7 +7,7 @@ package doublylinkedlist
 import "github.com/daichi-m/go18ds/containers"
 
 func assertEnumerableImplementation() {
-	var _ containers.EnumerableWithIndex[string] = (*List[string])(nil)
+	var _ containers.IndexedStreamer[string, *List[string]] = (*List[string])(nil)
 }
 
 // Each calls the given function once for each element, passing that element's index and value.
@@ -41,28 +41,17 @@ func (list *List[T]) Select(f func(index int, value T) bool) *List[T] {
 	return newList
 }
 
-// Any passes each element of the container to the given function and
-// returns true if the function ever returns true for any element.
-func (list *List[T]) Any(f func(index int, value T) bool) bool {
+// Filter returns a new container containing all elements for which the given function
+// returns true. If none of the elements return true, it will return an empty container.
+func (list *List[T]) Filter(f func(index int, value T) bool) *List[T] {
 	iterator := list.Iterator()
+	resultList := New[T]()
 	for iterator.Next() {
 		if f(iterator.Index(), iterator.Value()) {
-			return true
+			resultList.Add(iterator.Value())
 		}
 	}
-	return false
-}
-
-// All passes each element of the container to the given function and
-// returns true if the function returns true for all elements.
-func (list *List[T]) All(f func(index int, value T) bool) bool {
-	iterator := list.Iterator()
-	for iterator.Next() {
-		if !f(iterator.Index(), iterator.Value()) {
-			return false
-		}
-	}
-	return true
+	return resultList
 }
 
 // Find passes each element of the container to the given function and returns

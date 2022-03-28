@@ -23,6 +23,18 @@ type Container[T any] interface {
 	Values() []T
 }
 
+// IndexedContainer is a Container type which also provides index access.
+type IndexedContainer[T any] interface {
+	Container[T]
+	Get(index int) (T, bool)
+}
+
+// KeyedContainer is a Container type which also provides key access.
+type KeyedContainer[K comparable, T any] interface {
+	Container[T]
+	Get(key K) (T, bool)
+}
+
 // GetSortedValues returns sorted container's elements with respect to the passed comparator.
 // Does not effect the ordering of elements within the container.
 func GetSortedValues[T comparable](container Container[T], comparator utils.Comparator[T]) []T {

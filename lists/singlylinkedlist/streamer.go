@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package arraylist
+package singlylinkedlist
 
 import "github.com/daichi-m/go18ds/containers"
 
 func assertEnumerableImplementation() {
-	var _ containers.EnumerableWithIndex[string] = (*List[string])(nil)
+	var _ containers.IndexedStreamer[string, *List[string]] = (*List[string])(nil)
 }
 
 // Each calls the given function once for each element, passing that element's index and value.
@@ -41,34 +41,23 @@ func (list *List[T]) Select(f func(index int, value T) bool) *List[T] {
 	return newList
 }
 
-// Any passes each element of the collection to the given function and
-// returns true if the function ever returns true for any element.
-func (list *List[T]) Any(f func(index int, value T) bool) bool {
+// All passes each element of the container to the given function and
+// returns true if the function returns true for all elements.
+func (list *List[T]) Filter(f func(index int, value T) bool) *List[T] {
 	iterator := list.Iterator()
+	resultList := New[T]()
 	for iterator.Next() {
 		if f(iterator.Index(), iterator.Value()) {
-			return true
+			resultList.Add(iterator.Value())
 		}
 	}
-	return false
-}
-
-// All passes each element of the collection to the given function and
-// returns true if the function returns true for all elements.
-func (list *List[T]) All(f func(index int, value T) bool) bool {
-	iterator := list.Iterator()
-	for iterator.Next() {
-		if !f(iterator.Index(), iterator.Value()) {
-			return false
-		}
-	}
-	return true
+	return resultList
 }
 
 // Find passes each element of the container to the given function and returns
 // the first (index,value) for which the function is true or -1,nil otherwise
 // if no element matches the criteria.
-func (list *List[T]) Find(f func(index int, value T) bool) (int, T) {
+func (list *List[T]) Find(f func(index int, value T) bool) (index int, value T) {
 	iterator := list.Iterator()
 	for iterator.Next() {
 		if f(iterator.Index(), iterator.Value()) {

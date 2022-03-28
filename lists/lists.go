@@ -16,7 +16,6 @@ import (
 
 // List interface that all lists implement
 type List[T comparable] interface {
-	Get(index int) (T, bool)
 	Remove(index int)
 	Add(values ...T)
 	Contains(values ...T) bool
@@ -24,10 +23,12 @@ type List[T comparable] interface {
 	Swap(index1, index2 int)
 	Insert(index int, values ...T)
 	Set(index int, value T)
+	IndexOf(value T) int
 
-	containers.Container[T]
+	containers.IndexedContainer[T]
 	// Empty() bool
 	// Size() int
 	// Clear()
 	// Values() []T
+	// Get(index int) (T, bool)
 }

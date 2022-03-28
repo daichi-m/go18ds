@@ -101,7 +101,7 @@ func (list *List[T]) Values() []T {
 }
 
 //IndexOf returns index of provided element
-func (list *List[T]) IndexOf(value interface{}) int {
+func (list *List[T]) IndexOf(value T) int {
 	if list.size == 0 {
 		return -1
 	}

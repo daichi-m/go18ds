@@ -2,11 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package utils
-
-/* Placeholder for proposed "constraints" std package
- * https://pkg.go.dev/constraints
- */
+package constraints
 
 // Signed is a constraint that permits any signed integer type.
 // If future releases of Go add new predeclared signed integer types,
@@ -51,6 +47,7 @@ type Ordered interface {
 	Integer | Float | ~string
 }
 
+// Number is a constraint that permits any numeric type (any int, float, complex).
 type Number interface {
 	Integer | Float
 }
