@@ -48,7 +48,7 @@ func (set *Set[T]) Select(f func(index int, value T) bool) *Set[T] {
 // returns true. If none of the elements return true, it will return an empty container.
 func (set *Set[T]) Filter(f func(index int, value T) bool) *Set[T] {
 	iterator := set.Iterator()
-	resultList := NewWith[T](set.tree.Comparator)
+	resultList := NewWith(set.tree.Comparator)
 	for iterator.Next() {
 		if f(iterator.Index(), iterator.Value()) {
 			resultList.Add(iterator.Value())

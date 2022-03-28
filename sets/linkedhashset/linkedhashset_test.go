@@ -38,7 +38,7 @@ func sameElements[T int | string](a []T, b []T) bool {
 }
 
 func TestSetNew(t *testing.T) {
-	set := New[int](2, 1)
+	set := New(2, 1)
 	if actualValue := set.Size(); actualValue != 2 {
 		t.Errorf("Got %v expected %v", actualValue, 2)
 	}
@@ -67,7 +67,7 @@ func TestSetAdd(t *testing.T) {
 }
 
 func TestSetContains(t *testing.T) {
-	set := New[int](3, 1, 2, 3)
+	set := New(3, 1, 2, 3)
 
 	tests := []struct {
 		value    int
@@ -87,7 +87,7 @@ func TestSetContains(t *testing.T) {
 }
 
 func TestSetRemove(t *testing.T) {
-	set := New[int](3, 1, 2, 3)
+	set := New(3, 1, 2, 3)
 	tests := []struct {
 		value    int
 		expected bool

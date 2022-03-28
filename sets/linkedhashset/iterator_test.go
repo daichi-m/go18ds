@@ -39,7 +39,7 @@ func TestSetIteratorNext(t *testing.T) {
 }
 
 func TestSetIteratorPrev(t *testing.T) {
-	set := New[string]("c", "a", "b")
+	set := New("c", "a", "b")
 	expect := []string{"c", "a", "b"}
 	it := set.Iterator()
 	for it.Next() {
