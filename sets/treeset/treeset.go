@@ -13,6 +13,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/daichi-m/go18ds/containers"
 	"github.com/daichi-m/go18ds/sets"
 	rbt "github.com/daichi-m/go18ds/trees/redblacktree"
 	"github.com/daichi-m/go18ds/utils"
@@ -20,6 +21,7 @@ import (
 
 func assertSetImplementation() {
 	var _ sets.Set[string] = (*Set[string])(nil)
+	var _ containers.IndexedContainer[string] = (*Set[string])(nil)
 }
 
 type presence struct{}
@@ -82,6 +84,19 @@ func (set *Set[T]) Contains(items ...T) bool {
 		}
 	}
 	return true
+}
+
+// Get returns the element at index. If the index is out of bounds, the method
+// return false as the seconds parameter.
+// WARNING: This method iterates over the iterator and is O(N) operation.
+func (set *Set[T]) Get(index int) (T, bool) {
+	iterator := set.Iterator()
+	for iterator.Next() {
+		if index == iterator.Index() {
+			return iterator.Value(), true
+		}
+	}
+	return *new(T), false
 }
 
 // Empty returns true if set does not contain any elements.

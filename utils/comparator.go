@@ -74,6 +74,9 @@ func NumberComparator[T constraints.Number](a, b T) int {
 	}
 }
 
+var IntComparator Comparator[int] = NumberComparator[int]
+var FloatComparator Comparator[float64] = NumberComparator[float64]
+
 // TimeComparator provides a basic comparison on time.Time
 func TimeComparator(a, b time.Time) int {
 	switch {

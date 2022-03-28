@@ -7,7 +7,7 @@ package linkedhashset
 import "github.com/daichi-m/go18ds/containers"
 
 func assertEnumerableImplementation() {
-	var _ containers.EnumerableWithIndex[string] = (*Set[string])(nil)
+	var _ containers.IndexedStreamer[string, *Set[string]] = (*Set[string])(nil)
 }
 
 // Each calls the given function once for each element, passing that element's index and value.
@@ -41,28 +41,17 @@ func (set *Set[T]) Select(f func(index int, value T) bool) *Set[T] {
 	return newSet
 }
 
-// Any passes each element of the container to the given function and
-// returns true if the function ever returns true for any element.
-func (set *Set[T]) Any(f func(index int, value T) bool) bool {
+// Filter returns a new container containing all elements for which the given function
+// returns true. If none of the elements return true, it will return an empty container.
+func (set *Set[T]) Filter(f func(index int, value T) bool) *Set[T] {
 	iterator := set.Iterator()
+	resultList := New[T]()
 	for iterator.Next() {
 		if f(iterator.Index(), iterator.Value()) {
-			return true
+			resultList.Add(iterator.Value())
 		}
 	}
-	return false
-}
-
-// All passes each element of the container to the given function and
-// returns true if the function returns true for all elements.
-func (set *Set[T]) All(f func(index int, value T) bool) bool {
-	iterator := set.Iterator()
-	for iterator.Next() {
-		if !f(iterator.Index(), iterator.Value()) {
-			return false
-		}
-	}
-	return true
+	return resultList
 }
 
 // Find passes each element of the container to the given function and returns

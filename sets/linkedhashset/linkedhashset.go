@@ -106,6 +106,19 @@ func (set *Set[T]) Values() []T {
 	return values
 }
 
+// Get returns the element at index. If the index is out of bounds, the method
+// return false as the seconds parameter.
+// WARNING: This method iterates over the iterator and is O(N) operation.
+func (set *Set[T]) Get(index int) (T, bool) {
+	iterator := set.Iterator()
+	for iterator.Next() {
+		if index == iterator.Index() {
+			return iterator.Value(), true
+		}
+	}
+	return *new(T), false
+}
+
 // String returns a string representation of container
 func (set *Set[T]) String() string {
 	str := "LinkedHashSet\n"

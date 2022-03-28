@@ -51,7 +51,8 @@ func (list *List[T]) Add(values ...T) {
 }
 
 // Get returns the element at index.
-// Second return parameter is true if index is within bounds of the array and array is not empty, otherwise false.
+// Second return parameter is true if index is within bounds of the array
+// and array is not empty, otherwise false.
 func (list *List[T]) Get(index int) (T, bool) {
 	if !list.withinRange(index) {
 		return *new(T), false
