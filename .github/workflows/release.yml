@@ -22,7 +22,7 @@ jobs:
           - "ubuntu-latest"
           - "macos-latest"
         go:
-          - "1.18"
+          - "1.19"
 
     runs-on: ${{ matrix.os }}
     steps:
