@@ -4,7 +4,7 @@
 
 package redblacktree
 
-import "github.com/daichi-m/go18ds/containers"
+import "github.com/rahul1534/go18ds/containers"
 
 func assertIteratorImplementation() {
 	var _ containers.ReverseIteratorWithKey[string, int] = (*Iterator[string, int])(nil)

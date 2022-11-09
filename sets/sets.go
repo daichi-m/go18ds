@@ -9,7 +9,7 @@
 // Reference: https://en.wikipedia.org/wiki/Set_%28abstract_data_type%29
 package sets
 
-import "github.com/daichi-m/go18ds/containers"
+import "github.com/rahul1534/go18ds/containers"
 
 // Set interface that all sets implement
 type Set[T comparable] interface {

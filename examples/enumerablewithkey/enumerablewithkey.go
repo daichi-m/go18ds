@@ -7,7 +7,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/daichi-m/go18ds/maps/treemap"
+	"github.com/rahul1534/go18ds/maps/treemap"
 )
 
 func printMap(txt string, m *treemap.Map[string, int]) {

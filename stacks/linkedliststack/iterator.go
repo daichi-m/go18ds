@@ -4,7 +4,7 @@
 
 package linkedliststack
 
-import "github.com/daichi-m/go18ds/containers"
+import "github.com/rahul1534/go18ds/containers"
 
 func assertIteratorImplementation() {
 	var _ containers.IteratorWithIndex[string] = (*Iterator[string])(nil)

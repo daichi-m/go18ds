@@ -7,7 +7,7 @@ package main
 import (
 	"fmt"
 
-	rbt "github.com/daichi-m/go18ds/trees/redblacktree"
+	rbt "github.com/rahul1534/go18ds/trees/redblacktree"
 )
 
 // RedBlackTreeExample to demonstrate basic usage of RedBlackTree

@@ -5,8 +5,8 @@
 package main
 
 import (
-	"github.com/daichi-m/go18ds/lists/arraylist"
-	"github.com/daichi-m/go18ds/utils"
+	"github.com/rahul1534/go18ds/lists/arraylist"
+	"github.com/rahul1534/go18ds/utils"
 )
 
 // ArrayListExample to demonstrate basic usage of ArrayList

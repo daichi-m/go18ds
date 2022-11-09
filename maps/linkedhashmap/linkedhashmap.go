@@ -15,8 +15,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/daichi-m/go18ds/lists/doublylinkedlist"
-	"github.com/daichi-m/go18ds/maps"
+	"github.com/rahul1534/go18ds/lists/doublylinkedlist"
+	"github.com/rahul1534/go18ds/maps"
 )
 
 func assertMapImplementation() {

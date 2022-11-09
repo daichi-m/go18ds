@@ -1,3 +1,3 @@
-module github.com/daichi-m/go18ds
+module github.com/rahul1534/go18ds
 
-go 1.18
+go 1.19

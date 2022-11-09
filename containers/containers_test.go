@@ -9,7 +9,7 @@ package containers
 import (
 	"testing"
 
-	"github.com/daichi-m/go18ds/utils"
+	"github.com/rahul1534/go18ds/utils"
 )
 
 // For testing purposes

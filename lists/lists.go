@@ -10,8 +10,8 @@
 package lists
 
 import (
-	"github.com/daichi-m/go18ds/containers"
-	"github.com/daichi-m/go18ds/utils"
+	"github.com/rahul1534/go18ds/containers"
+	"github.com/rahul1534/go18ds/utils"
 )
 
 // List interface that all lists implement

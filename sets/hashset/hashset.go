@@ -13,7 +13,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/daichi-m/go18ds/sets"
+	"github.com/rahul1534/go18ds/sets"
 )
 
 func assertSetImplementation() {

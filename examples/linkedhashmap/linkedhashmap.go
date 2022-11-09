@@ -4,7 +4,7 @@
 
 package main
 
-import "github.com/daichi-m/go18ds/maps/linkedhashmap"
+import "github.com/rahul1534/go18ds/maps/linkedhashmap"
 
 // LinkedHashMapExample to demonstrate basic usage of LinkedHashMapExample
 func main() {

@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/daichi-m/go18ds/utils"
+	"github.com/rahul1534/go18ds/utils"
 )
 
 func sameElements[K comparable](a []K, b []K) bool {
@@ -510,7 +510,7 @@ func TestMapSerialization(t *testing.T) {
 	}
 }
 
-//noinspection GoBoolExpressions
+// noinspection GoBoolExpressions
 func assertSerialization(m *Map[string, string], txt string, t *testing.T) {
 	if actualValue := m.Keys(); false ||
 		actualValue[0] != "a" ||

@@ -7,7 +7,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/daichi-m/go18ds/sets/treeset"
+	"github.com/rahul1534/go18ds/sets/treeset"
 )
 
 // User model (id and name)

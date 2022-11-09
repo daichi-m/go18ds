@@ -13,8 +13,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/daichi-m/go18ds/lists"
-	"github.com/daichi-m/go18ds/utils"
+	"github.com/rahul1534/go18ds/lists"
+	"github.com/rahul1534/go18ds/utils"
 )
 
 func assertListImplementation() {
@@ -100,7 +100,7 @@ func (list *List[T]) Values() []T {
 	return newElements
 }
 
-//IndexOf returns index of provided element
+// IndexOf returns index of provided element
 func (list *List[T]) IndexOf(value interface{}) int {
 	if list.size == 0 {
 		return -1

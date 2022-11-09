@@ -18,8 +18,8 @@ package hashbidimap
 import (
 	"fmt"
 
-	"github.com/daichi-m/go18ds/maps"
-	"github.com/daichi-m/go18ds/maps/hashmap"
+	"github.com/rahul1534/go18ds/maps"
+	"github.com/rahul1534/go18ds/maps/hashmap"
 )
 
 func assertMapImplementation() {

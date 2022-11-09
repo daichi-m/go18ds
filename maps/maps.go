@@ -15,7 +15,7 @@
 // Reference: https://en.wikipedia.org/wiki/Associative_array
 package maps
 
-import "github.com/daichi-m/go18ds/containers"
+import "github.com/rahul1534/go18ds/containers"
 
 // Map interface that all maps implement
 type Map[K comparable, V any] interface {
