@@ -62,7 +62,7 @@ func (list *List[T]) Append(values ...T) {
 	list.Add(values...)
 }
 
-// Prepend prepends a values (or more)
+// Prepend prepends a value(s). order of prepended values is preserved
 func (list *List[T]) Prepend(values ...T) {
 	// in reverse to keep passed order i.e. ["c","d"] -> Prepend(["a","b"]) -> ["a","b","c",d"]
 	for v := len(values) - 1; v >= 0; v-- {
@@ -156,7 +156,7 @@ func (list *List[T]) Values() []T {
 	return values
 }
 
-//IndexOf returns index of provided element
+// IndexOf returns index of provided element
 func (list *List[T]) IndexOf(value T) int {
 	if list.size == 0 {
 		return -1

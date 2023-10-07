@@ -9,6 +9,7 @@ import (
 	"testing"
 
 	"github.com/daichi-m/go18ds/utils"
+	"gotest.tools/v3/assert"
 )
 
 func TestListNew(t *testing.T) {
@@ -597,4 +598,41 @@ func BenchmarkSinglyLinkedListRemove100000(b *testing.B) {
 	}
 	b.StartTimer()
 	benchmarkRemove(b, list, size)
+}
+
+func TestList_Prepend(t *testing.T) {
+	t.Parallel()
+
+	t.Run("prepend_empty_list_with_one_value", func(t *testing.T) {
+		list := New[int]()
+		list.Prepend(1)
+		listValues := list.Values()
+		listExpectedValues := []int{1}
+
+		assert.DeepEqual(t, listValues, listExpectedValues)
+	})
+
+	t.Run("prepend_empty_list_with_multiple_values", func(t *testing.T) {
+		list := New[string]()
+		list.Prepend("a", "b", "c")
+		listValues := list.Values()
+		listExpectedValues := []string{"a", "b", "c"}
+		assert.DeepEqual(t, listValues, listExpectedValues)
+	})
+
+	t.Run("prepend_non_empty_list_with_one_value", func(t *testing.T) {
+		list := New(1.23)
+		list.Prepend(4.56)
+		listValues := list.Values()
+		listExpectedValues := []float64{4.56, 1.23}
+		assert.DeepEqual(t, listValues, listExpectedValues)
+	})
+
+	t.Run("prepend_non_empty_list_with_multiple_values", func(t *testing.T) {
+		list := New(1, 2)
+		list.Prepend(3, 4, 5)
+		listValues := list.Values()
+		listExpectedValues := []int{3, 4, 5, 1, 2}
+		assert.DeepEqual(t, listValues, listExpectedValues)
+	})
 }
